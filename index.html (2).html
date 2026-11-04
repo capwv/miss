@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظم المعلومات الإدارية (MIS) | المراجعة الشاملة وامتحان الميدتيرم</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'Inter', 'sans-serif'],
+            en: ['Inter', 'Cairo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Cairo', 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .en-text {
+      direction: ltr;
+      unicode-bidi: embed;
+      font-family: 'Inter', 'Cairo', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.3);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.5);
+      border-radius: 9999px;
+    }
+    .tab-active {
+      background: linear-gradient(135deg, #2563eb 0%, #0d9488 100%);
+      color: white !important;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.45);
+    }
+    .pyramid-layer {
+      transition: all 0.25s ease;
+    }
+    .pyramid-layer:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-300">
+
+  <!-- Sticky Header & Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 border-b border-slate-200 dark:border-slate-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-3">
+        <!-- Brand Title -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-600 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+              <i class="fa-solid fa-network-wired text-xl"></i>
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <h1 class="text-lg sm:text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-l from-blue-600 to-teal-500 dark:from-blue-400 dark:to-teal-300">
+                  نظم المعلومات الإدارية (MIS)
+                </h1>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/30">
+                  ميدتيرم الأربعاء 11/11
+                </span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400 font-bold border border-blue-500/30">
+                  عربي + English
+                </span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                شرح تفصيلي للمحاضرات (1 إلى 7) • د. عبد المنعم إبراهيم • تدريبات تفاعلية + نموذج امتحان الميدتيرم (30 سؤالاً)
+              </p>
+            </div>
+          </div>
+
+          <!-- Mobile Theme Toggle -->
+          <button onclick="toggleTheme()" class="xl:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-500/10">
+            <i id="theme-icon-mobile" class="fa-solid fa-sun text-amber-400"></i>
+          </button>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1 xl:pb-0">
+          <button onclick="switchTab('lec12')" id="tab-btn-lec12" class="tab-btn tab-active px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>1. محاضرة 1 & 2 (الأساسيات والمبادئ)</span>
+          </button>
+          <button onclick="switchTab('lec34')" id="tab-btn-lec34" class="tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+            <i class="fa-solid fa-sitemap"></i>
+            <span>2. محاضرة 3 & 4 (المفاهيم والتصنيفات)</span>
+          </button>
+          <button onclick="switchTab('lec56')" id="tab-btn-lec56" class="tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+            <i class="fa-solid fa-compass-drafting"></i>
+            <span>3. محاضرة 5 & 6 (أبعاد المعلومات)</span>
+          </button>
+          <button onclick="switchTab('lec7')" id="tab-btn-lec7" class="tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+            <i class="fa-solid fa-microchip"></i>
+            <span>4. محاضرة 7 (المستويات ونظم TPS)</span>
+          </button>
+          <button onclick="switchTab('exam')" id="tab-btn-exam" class="tab-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-500/30">
+            <i class="fa-solid fa-file-signature"></i>
+            <span>5. امتحان الميدتيرم (30 سؤالاً)</span>
+          </button>
+          <button onclick="toggleTheme()" class="hidden xl:flex p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-500/10" title="تغيير المظهر">
+            <i id="theme-icon-desktop" class="fa-solid fa-sun text-amber-400"></i>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- ==========================================
+         TAB 1: LECTURES 1 & 2 (Intro, DIKW, Roles, 11 Principles & Structures)
+         ========================================== -->
+    <section id="tab-lec12" class="tab-content space-y-8">
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-blue-900 via-indigo-900 to-teal-900 text-white p-6 sm:p-8 shadow-xl">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/15 backdrop-blur-sm">
+              <i class="fa-solid fa-book-open"></i> Lectures 1 & 2 • المحاضرة الأولى والثانية
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black">أساسيات ومبادئ نظم المعلومات الإدارية (Foundations & Principles of MIS)</h2>
+            <p class="text-blue-100 text-sm sm:text-base leading-relaxed">
+              تغطي هذه الوحدة مفهوم <span class="en-text font-bold">MIS</span> وتطوره التاريخي، هرم المعرفة <span class="en-text font-bold">(DIKW Hierarchy)</span>، مكونات النظام، المبادئ الـ 11 الحاكمة لنظم المعلومات، الوظائف الإدارية الـ 6، والهياكل التنظيمية (الهرمي والمسطح).
+            </p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-2.5 text-center shrink-0">
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/15">
+              <div class="text-base font-black text-teal-300 en-text">DIKW Pyramid</div>
+              <div class="text-xs text-blue-100 mt-0.5">هرم البيانات والحكمة</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/15">
+              <div class="text-base font-black text-amber-300 en-text">11 Principles</div>
+              <div class="text-xs text-blue-100 mt-0.5">مبادئ نظم المعلومات</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/15">
+              <div class="text-base font-black text-indigo-300 en-text">6 Functions</div>
+              <div class="text-xs text-blue-100 mt-0.5">الوظائف الإدارية</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/15">
+              <div class="text-base font-black text-rose-300 en-text">Flat vs Hierarchy</div>
+              <div class="text-xs text-blue-100 mt-0.5">الهياكل التنظيمية</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.1 What is MIS, Key Elements & Historical Evolution -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <span class="w-9 h-9 rounded-xl bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center font-black">1</span>
+          <div>
+            <h3 class="text-xl font-extrabold">ما هو نظام المعلومات الإدارية؟ وعناصره الأساسية (What is MIS & Key Elements)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Lecture 1 - Slides 4, 5, 11</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="p-5 rounded-2xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800/60 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-blue-600 text-white en-text">Definition of MIS</span>
+              <span class="text-xs font-bold text-blue-600 dark:text-blue-400">تعريف نظم المعلومات الإدارية</span>
+            </div>
+            <p class="text-sm font-semibold en-text text-slate-800 dark:text-slate-200 leading-relaxed">
+              "MIS is a system that helps organizations manage their operations by providing <strong>timely and accurate information</strong> for decision-making."
+            </p>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-blue-200 dark:border-blue-800/50 pt-2">
+              <strong>بالعربي:</strong> هو نظام يساعد المنظمات على إدارة عملياتها من خلال توفير <strong>معلومات دقيقة وفي الوقت المناسب</strong> لدعم اتخاذ القرارات والأنشطة الإدارية (التخطيط، الجدولة، الرقابة).
+            </p>
+            <div class="text-xs bg-white/80 dark:bg-slate-900/80 p-3 rounded-xl border border-blue-500/20">
+              💡 <strong>كيف بدأ؟ (Early Use):</strong> بدأ كمعالجة بيانات إلكترونية <span class="en-text font-bold">Data Processing (DP) / Electronic Data Processing (EDP)</span> تركز فقط على المعاملات المكتبية والمستندات والتقارير الروتينية، ثم توسع ليصبح <span class="en-text font-bold">MIS</span> يدعم الإدارة.
+            </div>
+          </div>
+
+          <!-- 4 Key Elements of MIS -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-indigo-600 dark:text-indigo-400 en-text">1. People</span>
+                <span class="text-xs font-bold bg-indigo-500/10 text-indigo-500 px-2 py-0.5 rounded">الأفراد</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 en-text">Users who interact with the system.</p>
+              <p class="text-xs text-slate-700 dark:text-slate-300">المستخدمون والمديرون والمتخصصون الذين يتفاعلون مع النظام.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-teal-600 dark:text-teal-400 en-text">2. Technology</span>
+                <span class="text-xs font-bold bg-teal-500/10 text-teal-500 px-2 py-0.5 rounded">التكنولوجيا</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 en-text">Hardware and software used.</p>
+              <p class="text-xs text-slate-700 dark:text-slate-300">الأجهزة المادية (Hardware) والبرمجيات (Software) المستخدمة.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-amber-600 dark:text-amber-400 en-text">3. Processes</span>
+                <span class="text-xs font-bold bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded">العمليات / الإجراءات</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 en-text">Procedures for collecting and managing data.</p>
+              <p class="text-xs text-slate-700 dark:text-slate-300">الإجراءات والخطوات المتبعة لجمع وإدارة ومعالجة البيانات.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-rose-600 dark:text-rose-400 en-text">4. Data</span>
+                <span class="text-xs font-bold bg-rose-500/10 text-rose-500 px-2 py-0.5 rounded">البيانات</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 en-text">Raw facts processed into useful information.</p>
+              <p class="text-xs text-slate-700 dark:text-slate-300">الحقائق الخام التي تتم معالجتها لتتحول إلى معلومات مفيدة.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Historical Evolution Timeline (Slide 11) -->
+        <div class="pt-2 space-y-3">
+          <h4 class="font-extrabold text-sm sm:text-base flex items-center gap-2">
+            <i class="fa-solid fa-timeline text-blue-500"></i>
+            التطور التاريخي لنظم المعلومات الإدارية (Historical Evolution of MIS - Slide 11)
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/70 border-r-4 border-slate-500 space-y-1">
+              <div class="text-sm font-black text-slate-600 dark:text-slate-300 en-text">1950s</div>
+              <div class="text-xs font-bold en-text">Data Processing / EDP</div>
+              <p class="text-xs text-slate-600 dark:text-slate-400">التركيز على الأعمال المكتبية الروتينية وتسجيل المعاملات فقط (Clerical & transaction work).</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-blue-500/10 border-r-4 border-blue-500 space-y-1">
+              <div class="text-sm font-black text-blue-600 dark:text-blue-400 en-text">1960s</div>
+              <div class="text-xs font-bold en-text">Management Support</div>
+              <p class="text-xs text-slate-600 dark:text-slate-400">التوسع في دعم الأنشطة الإدارية والتقارير الإدارية (Expansion into management & administrative support).</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-teal-500/10 border-r-4 border-teal-500 space-y-1">
+              <div class="text-sm font-black text-teal-600 dark:text-teal-400 en-text">1980s – 1990s</div>
+              <div class="text-xs font-bold en-text">Networks & Integration</div>
+              <p class="text-xs text-slate-600 dark:text-slate-400">الدمج مع الشبكات وتكنولوجيا الاتصالات (LANs, Intranets) وربط الموردين والعملاء.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-purple-500/10 border-r-4 border-purple-500 space-y-1">
+              <div class="text-sm font-black text-purple-600 dark:text-purple-400 en-text">Today (اليوم)</div>
+              <div class="text-xs font-bold en-text">Cloud, AI & Real-Time</div>
+              <p class="text-xs text-slate-600 dark:text-slate-400">النظم الفورية اللحظية، الحوسبة السحابية (Cloud)، تحليلات البيانات، الذكاء الاصطناعي (AI)، والهواتف.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.2 DIKW Hierarchy Pyramid & System Components -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- DIKW Pyramid (7 cols) -->
+        <div class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h3 class="text-lg font-extrabold flex items-center gap-2">
+                <i class="fa-solid fa-caret-up text-teal-500 text-2xl"></i>
+                هرم المعرفة (The DIKW Hierarchy - Lec 1 Slides 6 & 8)
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">اضغط على أي طبقة في الهرم لعرض تعريفها الدقيق وأمثلتها</p>
+            </div>
+            <span class="text-xs font-mono font-bold px-2.5 py-1 rounded bg-teal-500/15 text-teal-600 dark:text-teal-400 en-text">Data → Info → Knowledge → Wisdom</span>
+          </div>
+
+          <!-- Interactive Visual Pyramid -->
+          <div class="flex flex-col items-center space-y-2 py-2">
+            <!-- Wisdom -->
+            <div onclick="selectDIKW(3)" class="pyramid-layer cursor-pointer w-1/2 sm:w-2/5 py-3 px-4 rounded-t-3xl rounded-b-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white text-center shadow-md">
+              <div class="font-black text-sm sm:text-base en-text">4. WISDOM (الحكمة)</div>
+              <div class="text-[11px] text-amber-100">Applying knowledge & Judgment</div>
+            </div>
+            <!-- Knowledge -->
+            <div onclick="selectDIKW(2)" class="pyramid-layer cursor-pointer w-2/3 sm:w-3/5 py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center shadow-md">
+              <div class="font-black text-sm sm:text-base en-text">3. KNOWLEDGE (المعرفة)</div>
+              <div class="text-[11px] text-purple-100">Info + Experience, Context & Patterns</div>
+            </div>
+            <!-- Information -->
+            <div onclick="selectDIKW(1)" class="pyramid-layer cursor-pointer w-5/6 sm:w-4/5 py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center shadow-md">
+              <div class="font-black text-sm sm:text-base en-text">2. INFORMATION (المعلومات)</div>
+              <div class="text-[11px] text-blue-100">Processed / Organized Data with Meaning</div>
+            </div>
+            <!-- Data -->
+            <div onclick="selectDIKW(0)" class="pyramid-layer cursor-pointer w-full py-3.5 px-4 rounded-b-2xl rounded-t-lg bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-center shadow-md">
+              <div class="font-black text-sm sm:text-base en-text">1. DATA (البيانات - قاعدة الهرم)</div>
+              <div class="text-[11px] text-emerald-100">Raw Facts & Figures without Context</div>
+            </div>
+          </div>
+
+          <!-- Explanation Box for DIKW -->
+          <div id="dikw-detail-box" class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm space-y-1.5">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- System Components & Feedback Loop (5 cols) -->
+        <div class="lg:col-span-5 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <h3 class="text-lg font-extrabold flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+              <i class="fa-solid fa-arrows-spin text-blue-500"></i>
+              مكونات النظام والتغذية الراجعة (System & Feedback - Slide 6 & 10)
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              <strong class="en-text">System Definition:</strong> Interrelated components working together toward a common goal by accepting inputs, processing them, and producing outputs.
+              <br><strong>النظام:</strong> مجموعة مكونات مترابطة تعمل معاً لتحقيق هدف مشترك.
+            </p>
+
+            <!-- Flow Diagram -->
+            <div class="space-y-2 pt-1">
+              <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-between">
+                <div>
+                  <span class="font-bold text-emerald-600 dark:text-emerald-400 en-text">1. Input (المدخلات)</span>
+                  <p class="text-xs text-slate-600 dark:text-slate-400">Gathering raw data, materials (جمع البيانات الخام).</p>
+                </div>
+                <i class="fa-solid fa-arrow-down text-emerald-500"></i>
+              </div>
+              <div class="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-between">
+                <div>
+                  <span class="font-bold text-blue-600 dark:text-blue-400 en-text">2. Processing (المعالجة)</span>
+                  <p class="text-xs text-slate-600 dark:text-slate-400">Transforming inputs: calculations, sorting, aggregating (الحساب، الفرز، التجميع).</p>
+                </div>
+                <i class="fa-solid fa-arrow-down text-blue-500"></i>
+              </div>
+              <div class="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-between">
+                <div>
+                  <span class="font-bold text-purple-600 dark:text-purple-400 en-text">3. Output (المخرجات)</span>
+                  <p class="text-xs text-slate-600 dark:text-slate-400">Delivering useful results, reports, decisions (تقديم معلومات وتقارير مفيدة).</p>
+                </div>
+                <i class="fa-solid fa-rotate-left text-purple-500"></i>
+              </div>
+              <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-1">
+                <div class="font-bold text-amber-600 dark:text-amber-400 en-text">4. Feedback & Control (التغذية الراجعة والرقابة)</div>
+                <p class="text-xs text-slate-600 dark:text-slate-300">
+                  • <strong>Feedback:</strong> Data about system performance (e.g., sales reports) used to refine input/process.
+                  <br>• <strong>Control:</strong> Taking corrective actions based on feedback to meet objectives.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-xs space-y-1">
+            <div class="font-bold text-rose-600 dark:text-rose-400">تحديات ومخاطر MIS (Challenges - Lec 1 Slide 14 & Lec 2 Slide 8):</div>
+            <div>• <strong>Information Overload:</strong> تكدس/إغراق معلوماتي (بيانات أكثر من اللازم).</div>
+            <div>• <strong>Resistance to change:</strong> مقاومة التغيير وثقافة المنظمة.</div>
+            <div>• <strong>High Cost & Security/Privacy issues:</strong> التكلفة وأمن البيانات.</div>
+            <div>• <strong>Static reports & Timeliness issues:</strong> التقارير الثابتة وتأخر التحديث.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.3 The 11 Principles of MIS (Lecture 2 Slides 5 & 6) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center font-black">2</span>
+            <div>
+              <h3 class="text-xl font-extrabold">المبادئ الـ 11 الحاكمة لنظم المعلومات الإدارية (11 Principles of MIS)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Lecture 2 - Slides 5 & 6 (مهمة جداً في أسئلة الصح وغلط والاختياري والأكمل)</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400">11 مبدأ أساسي</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 en-text">1. Management by Objectives (MBO)</div>
+            <div class="font-bold">مبدأ الإدارة بالأهداف</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">MIS should be designed to achieve organizational objectives (يصمم لتحقيق أهداف المنظمة).</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 en-text">2. System Approach</div>
+            <div class="font-bold">مبدأ منهج النظام</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">MIS is a system of subsystems working together (نظام يتكون من أنظمة فرعية تعمل معاً).</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-1">
+            <div class="font-bold text-amber-600 dark:text-amber-400 en-text">3. Principle of Exception ★</div>
+            <div class="font-bold">مبدأ الاستثناء (مهم جداً!)</div>
+            <p class="text-xs text-slate-600 dark:text-slate-300">Only exceptional information that requires action should reach higher management (المعلومات الاستثنائية فقط ترفع للإدارة العليا).</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 en-text">4. Principle of Integration</div>
+            <div class="font-bold">مبدأ التكامل</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">MIS must integrate various subsystems to ensure coherence (دمج النظم الفرعية لضمان الترابط).</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 en-text">5. Subsystem Concept</div>
+            <div class="font-bold">مبدأ مفهوم النظم الفرعية</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Each functional area (Finance, HR, Marketing) is a subsystem of MIS.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-1">
+            <div class="font-bold text-emerald-600 dark:text-emerald-400 en-text">6. Central Database ★</div>
+            <div class="font-bold">مبدأ قاعدة البيانات المركزية</div>
+            <p class="text-xs text-slate-600 dark:text-slate-300">All data should be stored centrally for consistency and accessibility (تخزين مركزي لمنع التضارب).</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 en-text">7. Proper Flow of Information</div>
+            <div class="font-bold">مبدأ التدفق السلس للمعلومات</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Information must flow smoothly at all levels (تدفق سلس في جميع المستويات).</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 en-text">8. Flexibility and Adaptability</div>
+            <div class="font-bold">مبدأ المرونة والقابلية للتكيف</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">MIS must adapt to changes in environment and strategy (التكيف مع تغيرات البيئة).</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 en-text">9. Principle of Relevance</div>
+            <div class="font-bold">مبدأ الملاءمة</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Information should be relevant and useful to decision-makers.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 en-text">10. Principle of Simplicity</div>
+            <div class="font-bold">مبدأ البساطة</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">MIS should be user-friendly and not unnecessarily complex (سهل الاستخدام وغير معقد).</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1 md:col-span-2 lg:col-span-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 en-text">11. Control and Feedback</div>
+            <div class="font-bold">مبدأ الرقابة والتغذية الراجعة</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">MIS must provide feedback to support control functions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.4 Managerial Functions & Organizational Structures (Lec 2 Slides 9-16) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 6 Managerial Functions -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <h3 class="text-lg font-extrabold flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <i class="fa-solid fa-briefcase text-indigo-500"></i>
+            الوظائف الإدارية الـ 6 التي يدعمها MIS (Managerial Functions - Slide 9)
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/70">
+              <strong class="text-indigo-500 en-text">1. Planning (التخطيط):</strong> Setting objectives and choosing paths (تحديد الأهداف واختيار المسارات).
+            </div>
+            <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/70">
+              <strong class="text-indigo-500 en-text">2. Organizing (التنظيم):</strong> Structuring activities and resources (هيكلة الأنشطة والموارد).
+            </div>
+            <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/70">
+              <strong class="text-indigo-500 en-text">3. Staffing (التوظيف):</strong> Hiring and assigning roles (تعيين الموظفين وتوزيع الأدوار).
+            </div>
+            <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/70">
+              <strong class="text-indigo-500 en-text">4. Directing (التوجيه):</strong> Guiding and motivating employees (توجيه وتحفيز العاملين).
+            </div>
+            <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/70">
+              <strong class="text-indigo-500 en-text">5. Controlling (الرقابة):</strong> Measuring performance, correcting deviations (قياس الأداء وتصحيح الانحرافات).
+            </div>
+            <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/70">
+              <strong class="text-indigo-500 en-text">6. Coordinating (التنسيق):</strong> Aligning all activities together (مواءمة وتنسيق جميع الأنشطة).
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-xs space-y-1">
+            <div class="font-bold text-indigo-600 dark:text-indigo-400">مقارنة المنظمة قبل وبعد تطبيق MIS (Before vs. After MIS - Slide 16):</div>
+            <div>• <strong>Efficiency (الكفاءة):</strong> Manual (يدوي) ➔ <strong>Automated (مؤتمت)</strong></div>
+            <div>• <strong>Accuracy (الدقة):</strong> Error-prone (عرضة للخطأ) ➔ <strong>Reliable (موثوق)</strong></div>
+            <div>• <strong>Communication (التواصل):</strong> Fragmented (مجزأ) ➔ <strong>Integrated (متكامل)</strong></div>
+            <div>• <strong>Speed (السرعة):</strong> Slow (بطيء) ➔ <strong>Fast decision-making (قرارات سريعة)</strong></div>
+          </div>
+        </div>
+
+        <!-- Organizational Structures (Slide 10-12) -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <h3 class="text-lg font-extrabold flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <i class="fa-solid fa-sitemap text-teal-500"></i>
+            الهياكل التنظيمية (Organizational Structures - Slides 10-12)
+          </h3>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800">
+              <strong class="en-text text-teal-500">1. Hierarchy of Authority:</strong> تسلسل السلطة من أعلى لأسفل.
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800">
+              <strong class="en-text text-teal-500">2. Specialization:</strong> التخصص وتقسيم العمل لمهام محددة.
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800">
+              <strong class="en-text text-teal-500">3. Standardization:</strong> التوحيد القياسي (قواعد وإجراءات رسمية).
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800">
+              <strong class="en-text text-teal-500">4. Centralization:</strong> المركزية (تركز سلطة القرار في القمة).
+            </div>
+          </div>
+
+          <!-- Hierarchical vs Flat Comparison -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3.5 rounded-2xl bg-blue-500/10 border border-blue-500/30 space-y-1">
+              <div class="font-bold text-blue-600 dark:text-blue-400 en-text">Hierarchical Structure (الهيكل الهرمي)</div>
+              <p class="text-slate-600 dark:text-slate-300">
+                • Traditional pyramid shape (شكل هرمي تقليدي).
+                <br>• Clear authority and reporting lines (خطوط سلطة وتقارير واضحة ومتدرجة).
+              </p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-1">
+              <div class="font-bold text-emerald-600 dark:text-emerald-400 en-text">Flat Structure (الهيكل المسطح)</div>
+              <p class="text-slate-600 dark:text-slate-300">
+                • Few or no middle managers (قليل أو بدون إدارة وسطى).
+                <br>• Promotes teamwork and faster decisions (يعزز العمل الجماعي وسرعة القرار).
+              </p>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/70 text-xs">
+            <strong>الخصائص الـ 6 المشتركة لكل المنظمات (Shared Features - Slide 12):</strong>
+            <span class="en-text">1. Clear Division of Labor, 2. Hierarchy, 3. Explicit Rules & Procedures, 4. Impartial Judgments (أحكام نزيهة بدون محاباة), 5. Technical Qualifications, 6. Maximum Organizational Efficiency.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice Quiz Lec 1 & 2 -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+        <h3 class="text-lg font-extrabold flex items-center gap-2">
+          <i class="fa-solid fa-bolt text-amber-500"></i>
+          تدريب تفاعلي سريع على المحاضرة 1 و 2 (عربي & English)
+        </h3>
+        <div id="quiz-lec12" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 2: LECTURES 3 & 4 (IS vs IT, CBIS, 4 Classifications & Modes)
+         ========================================== -->
+    <section id="tab-lec34" class="tab-content hidden space-y-8">
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-teal-900 via-emerald-900 to-cyan-900 text-white p-6 sm:p-8 shadow-xl">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/15 backdrop-blur-sm">
+              <i class="fa-solid fa-sitemap"></i> Lectures 3 & 4 • المحاضرة الثالثة والرابعة
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black">مفاهيم نظم المعلومات وتصنيفاتها (Key Concepts & Classification of IS)</h2>
+            <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+              تغطي هذه الوحدة الفرق الجوهري بين <span class="en-text font-bold">IS vs. IT</span> و <span class="en-text font-bold">Computers</span>، موارد النظام المبني على الحاسب <span class="en-text font-bold">(CBIS)</span>، دورة حياة تطوير النظام، والتصنيفات الأربعة لنظم المعلومات (حسب المستوى التنظيمي، طريقة المعالجة، الهدف، ونوع الدعم).
+            </p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-center shrink-0">
+            <div class="text-xs text-emerald-200">القاعدة الذهبية في المحاضرة 3</div>
+            <div class="text-lg font-black text-amber-300 en-text mt-1">IT is a Subsystem of IS</div>
+            <div class="text-xs text-white mt-1 en-text">IS = IT + People + Processes</div>
+            <div class="text-[11px] text-emerald-200 mt-0.5">IS = Socio-Technical System</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.1 IS vs IT vs Computers & CBIS Resources (Lecture 3) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <span class="w-9 h-9 rounded-xl bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center font-black">1</span>
+          <div>
+            <h3 class="text-xl font-extrabold">منظورا نظم المعلومات، والفرق بين الكمبيوتر و IT و IS (Lecture 3)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Slides 3, 5, 7-14, 21-22</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <!-- Two Perspectives -->
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2">
+            <div class="font-bold text-indigo-600 dark:text-indigo-400">منظورا تعريف IS (Two Perspectives - Slide 3)</div>
+            <div>
+              <strong class="en-text">1. Functional Perspective (المنظور الوظيفي):</strong>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Tech-based medium for storing, processing, and sharing info (وسيط تقني لتخزين ومعالجة ومشاركة المعلومات).</p>
+            </div>
+            <div>
+              <strong class="en-text">2. Structural Perspective (المنظور الهيكلي):</strong>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Combination of People, Data, Technology, and Processes (مزيج من الأفراد والبيانات والتكنولوجيا والعمليات).</p>
+            </div>
+          </div>
+
+          <!-- Computers vs IS Analogy -->
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2">
+            <div class="font-bold text-amber-600 dark:text-amber-400 en-text">IS vs. Computers (تشبيه الحافلة - Slide 13)</div>
+            <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+              • <strong>Computers (الحواسيب):</strong> مجرد أدوات لمعالجة البيانات <span class="en-text">(Tools for data processing)</span> مثل <strong>الحافلة (Bus)</strong>.
+              <br>• <strong>Information System (IS):</strong> نظام أوسع يشمل الأفراد، منطق الأعمال، والعمليات مثل <strong>نظام النقل العام بالكامل (Full Public Transport System)</strong>.
+            </p>
+          </div>
+
+          <!-- IT vs IS -->
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+            <div class="font-bold text-emerald-600 dark:text-emerald-400 en-text">IT vs. IS (سؤال امتحانات متكرر - Slide 14)</div>
+            <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+              • <strong>IT (تكنولوجيا المعلومات):</strong> تشمل المكونات التقنية فقط <span class="en-text">(Hardware, Software, Databases, Networks)</span>.
+              <br>• <strong>IS (نظم المعلومات):</strong> تشمل <span class="en-text font-bold">IT + People + Processes</span>.
+              <br>• إذن: <strong class="en-text text-emerald-500">IT = Subsystem of IS</strong> (تكنولوجيا المعلومات هي نظام فرعي من نظم المعلومات).
+            </p>
+          </div>
+        </div>
+
+        <!-- 5 Resources of CBIS -->
+        <div class="space-y-3">
+          <h4 class="font-extrabold text-sm sm:text-base">
+            الموارد الخمسة لنظام المعلومات المبني على الحاسب <span class="en-text text-teal-500">(Computer-Based Information System - CBIS Resources - Slides 5 & 7-12)</span>
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+            <div class="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/70 space-y-1">
+              <div class="font-bold text-blue-500 en-text">1. People Resources</div>
+              <div class="font-semibold">الموارد البشرية</div>
+              <p class="text-slate-500 dark:text-slate-400">• <strong>Users</strong> (المستخدمون)<br>• <strong>IT Specialists</strong> (المتخصصون)<br>• <strong>Managers</strong> (المديرون)</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/70 space-y-1">
+              <div class="font-bold text-emerald-500 en-text">2. Hardware Resources</div>
+              <div class="font-semibold">الموارد المادية</div>
+              <p class="text-slate-500 dark:text-slate-400">الأجهزة ووسائط التخزين:<br>• Microcomputers<br>• Minicomputers<br>• Mainframes<br>• Supercomputers</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/70 space-y-1">
+              <div class="font-bold text-purple-500 en-text">3. Software Resources</div>
+              <div class="font-semibold">الموارد البرمجية</div>
+              <p class="text-slate-500 dark:text-slate-400">• <strong>System Software</strong> (OS)<br>• <strong>Application Software</strong><br>• <strong>Procedures</strong> (تعليمات التشغيل للأفراد)</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/70 space-y-1">
+              <div class="font-bold text-amber-500 en-text">4. Data Resources</div>
+              <div class="font-semibold">موارد البيانات</div>
+              <p class="text-slate-500 dark:text-slate-400">نص، أرقام، صور، صوت. يجب أن تكون: <strong>Comprehensive, Non-redundant, Well-structured</strong> (في قواعد بيانات ونظم معرفة).</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/70 space-y-1">
+              <div class="font-bold text-rose-500 en-text">5. Network Resources</div>
+              <div class="font-semibold">موارد الشبكات</div>
+              <p class="text-slate-500 dark:text-slate-400">وسائط الاتصال <span class="en-text">(Fiber optics, Wireless)</span> لدعم التواصل بين الأفراد والأجهزة.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SDLC & Modern Examples -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 text-xs">
+          <div class="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex flex-col justify-center space-y-2">
+            <div class="font-bold text-indigo-600 dark:text-indigo-400">مراحل تطوير نظام المعلومات بالترتيب (IS Development - Slide 21):</div>
+            <div class="flex flex-wrap items-center gap-1.5 font-mono font-bold en-text">
+              <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900">1. Planning</span> ➔
+              <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900">2. Analysis</span> ➔
+              <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900">3. Design</span> ➔
+              <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900">4. Implementation</span> ➔
+              <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900">5. Maintenance</span>
+            </div>
+          </div>
+          <div class="p-4 rounded-2xl bg-teal-500/10 border border-teal-500/20 space-y-1">
+            <div class="font-bold text-teal-600 dark:text-teal-400">أمثلة نظم المعلومات الحديثة (Examples of Modern IS - Slide 18):</div>
+            <div>• <strong>ERP (تخطيط موارد المؤسسة):</strong> SAP, Oracle</div>
+            <div>• <strong>CRM (إدارة علاقات العملاء):</strong> Salesforce</div>
+            <div>• <strong>EHR (السجلات الصحية الإلكترونية):</strong> Used in hospitals (المستشفيات)</div>
+            <div>• <strong>LMS (نظم إدارة التعلم):</strong> Moodle, Blackboard</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2 Lecture 4: Classification of Information Systems (4 Ways) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center font-black">2</span>
+            <div>
+              <h3 class="text-xl font-extrabold">تصنيف وتطور نظم المعلومات (Classification of IS - Lecture 4)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">لماذا نصنف نظم المعلومات؟ وما هي التصنيفات الأربعة الرئيسية؟</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400">4 تصنيفات أساسية</span>
+        </div>
+
+        <!-- Purpose of Classification (Slide 3) -->
+        <div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/70 space-y-2 text-xs sm:text-sm">
+          <div class="font-bold text-blue-600 dark:text-blue-400">أغراض وفوائد تصنيف نظم المعلومات (Purpose of Classification - Slide 2 & 3):</div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900">
+              <strong class="en-text">1. Facilitates planning & implementation:</strong> يسهل تخطيط وتنفيذ الأنظمة الجديدة وتحديد الفجوات.
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900">
+              <strong class="en-text">2. Helps compare alternatives:</strong> يساعد في مقارنة البدائل (مثل الفرق بين <strong>CRM</strong> للعملاء و <strong>ERP</strong> الذي يدمج العملاء والمبيعات والمخزون).
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900">
+              <strong class="en-text">3. Supports outsourcing & coordination:</strong> يدعم التعهيد الخارجي (Outsourcing كالسحابة) والتنسيق بين الأقسام.
+            </div>
+          </div>
+        </div>
+
+        <!-- CLASSIFICATION 1: By Organizational Levels (Slides 4-9) -->
+        <div class="space-y-3">
+          <h4 class="font-extrabold text-base text-indigo-600 dark:text-indigo-400 flex items-center gap-2">
+            <i class="fa-solid fa-building"></i>
+            التصنيف الأول: حسب المستويات التنظيمية (Classification by Organizational Levels - Slides 4-9)
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div class="p-4 rounded-2xl bg-indigo-500/5 border border-indigo-500/20 space-y-1.5">
+              <div class="font-bold text-indigo-600 dark:text-indigo-400 en-text">1. Functional (Departmental) IS</div>
+              <div class="font-bold">نظم المعلومات الوظيفية (على مستوى الأقسام)</div>
+              <p class="text-slate-600 dark:text-slate-400">تدعم قسماً واحداً محدداً لتعزيز كفاءته مثل: <span class="en-text">Accounting IS, Marketing IS, HRIS, Production IS</span>.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-blue-500/5 border border-blue-500/20 space-y-1.5">
+              <div class="font-bold text-blue-600 dark:text-blue-400 en-text">2. Enterprise Information Systems (EIS)</div>
+              <div class="font-bold">نظم المعلومات المؤسسية الشاملة</div>
+              <p class="text-slate-600 dark:text-slate-400">تدمج المعلومات عبر <strong>جميع أقسام المنظمة</strong> في نظام واحد متكامل لدعم قرارات المؤسسة ككل (مثل <strong>ERP</strong> و <strong>CRM</strong>).</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-1.5">
+              <div class="font-bold text-emerald-600 dark:text-emerald-400 en-text">3. Inter-Organizational IS (IOS)</div>
+              <div class="font-bold">نظم المعلومات بين المنظمات</div>
+              <p class="text-slate-600 dark:text-slate-400">تربط <strong>عدة منظمات مختلفة إلكترونياً</strong> (الموردين والعملاء) عبر الإنترنت لتبادل البيانات والسلع في <span class="en-text">B2B & B2C</span> (مثل <strong>SCM</strong> والتجارة الإلكترونية).</p>
+            </div>
+          </div>
+          <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs">
+            <strong>هرمية الأنظمة (Hierarchy of Systems - مثال Amazon سلايد 9):</strong> النظام الأعلى (مثل نظام سلسلة الإمداد) يتكون من أنظمة فرعية <span class="en-text">(Subsystems: Production, Logistics, Retail)</span>؛ وأي خلل في نظام اللوجستيات يؤخر التسليم ويؤثر على أداء النظام الكلي.
+          </div>
+        </div>
+
+        <!-- CLASSIFICATION 2: By Mode of Data Processing (Slides 10-14) -->
+        <div class="space-y-3 pt-2">
+          <h4 class="font-extrabold text-base text-teal-600 dark:text-teal-400 flex items-center gap-2">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            التصنيف الثاني: حسب طريقة معالجة البيانات (Classification by Mode of Data Processing - Slides 10-14)
+          </h4>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs sm:text-sm text-right border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
+              <thead class="bg-teal-600 text-white">
+                <tr>
+                  <th class="p-3">وجه المقارنة</th>
+                  <th class="p-3 en-text">1. Batch Processing (المعالجة بالدفعات)</th>
+                  <th class="p-3 en-text">2. On-line Batch (المباشرة بالدفعات)</th>
+                  <th class="p-3 en-text">3. On-line Real-Time (الفورية اللحظية)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 dark:divide-slate-800 bg-white dark:bg-slate-900">
+                <tr>
+                  <td class="p-3 font-bold">طريقة العمل وزمن التنفيذ</td>
+                  <td class="p-3">تُجمع البيانات خلال فترة (ساعات/أيام/شهر) ثم تُعالج دفعة واحدة لاحقاً.</td>
+                  <td class="p-3">يتم إدخال البيانات مباشرة (Online) ولكن المعالجة الفعلية تتم دورياً (نهاية اليوم).</td>
+                  <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">تُعالج كل معاملة فور إدخالها لحظياً وتُحدث قاعدة البيانات فوراً.</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold">التفاعل والتكلفة</td>
+                  <td class="p-3">لا يوجد تفاعل مباشر • تكلفة منخفضة ولكن نتائج متأخرة (Limited timeliness).</td>
+                  <td class="p-3">توازن بين الفورية والكفاءة (حيث لا يلزم التحديث اللحظي).</td>
+                  <td class="p-3">تفاعل مباشر ولحظي مع المستخدم واستجابة فورية.</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold">أمثلة المحاضرة</td>
+                  <td class="p-3 font-bold text-amber-600 dark:text-amber-400">الرواتب (Payroll)، الفواتير (Billing)، الشيكات البنكية ليلاً.</td>
+                  <td class="p-3">تسجيل الطلاب للمواد لحظياً وحساب الرسوم في نهاية اليوم.</td>
+                  <td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">حجز الطيران (Airline booking)، الصراف الآلي (ATM)، متابعة المريض بالمستشفى.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CLASSIFICATION 3 & 4: By System Objectives & Type of Support (Slides 15-24) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
+          <!-- By System Objectives (8 cols) -->
+          <div class="lg:col-span-8 space-y-3">
+            <h4 class="font-extrabold text-base text-purple-600 dark:text-purple-400 flex items-center gap-2">
+              <i class="fa-solid fa-bullseye"></i>
+              التصنيف الثالث: حسب أهداف النظام (Classification by System Objectives - Slides 15-21)
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <div class="font-bold text-blue-500 en-text">1. TPS (Transaction Processing Systems)</div>
+                <div class="font-semibold">نظم معالجة المعاملات</div>
+                <p class="text-slate-500 dark:text-slate-400 mt-1">تنفيذ المعاملات اليومية الروتينية بسرعة ودقة للمستوى التشغيلي (نقاط البيع POS، الفواتير، الحضور).</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <div class="font-bold text-amber-500 en-text">2. PCS (Process Control Systems)</div>
+                <div class="font-semibold">نظم التحكم في العمليات الصناعية</div>
+                <p class="text-slate-500 dark:text-slate-400 mt-1">أتمتة العمليات الفيزيائية والتصنيعية بالحساسات (Sensors) بدون تدخل بشري (محطات الكهرباء، المصافي، خطوط الإنتاج).</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <div class="font-bold text-emerald-500 en-text">3. DSS (Decision Support Systems)</div>
+                <div class="font-semibold">نظم دعم القرار</div>
+                <p class="text-slate-500 dark:text-slate-400 mt-1">تساعد المديرين عبر النماذج وتحليل البيانات لحل المشكلات <strong>شبه المهيكلة (Semi-structured)</strong> مثل التنبؤ بتأثير رفع السعر 5%.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <div class="font-bold text-purple-500 en-text">4. ES (Expert Systems)</div>
+                <div class="font-semibold">النظم الخبيرة</div>
+                <p class="text-slate-500 dark:text-slate-400 mt-1">تستخدم <strong>الذكاء الاصطناعي (AI)</strong> وقواعد المعرفة <span class="en-text">(Rule-based reasoning & Knowledge bases)</span> لمحاكاة خبير بشري (التشخيص الطبي).</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <div class="font-bold text-rose-500 en-text">5. EIS (Executive Information Systems)</div>
+                <div class="font-semibold">نظم المعلومات التنفيذية</div>
+                <p class="text-slate-500 dark:text-slate-400 mt-1">مصممة للإدارة العليا (Top Executives) للقرارات الاستراتيجية؛ تقدم بيانات ملخصة ومؤشرات الأداء <strong>KPIs & Dashboards</strong>.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <div class="font-bold text-teal-500 en-text">6. BIS (Business Information Systems)</div>
+                <div class="font-semibold">نظم معلومات الأعمال</div>
+                <p class="text-slate-500 dark:text-slate-400 mt-1">تدمج البيانات عبر وظائف الأعمال المختلفة لدعم التقارير والقرارات على كل المستويات (CRM, ERP, SCM).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- By Type of Support (4 cols) -->
+          <div class="lg:col-span-4 space-y-3">
+            <h4 class="font-extrabold text-base text-rose-600 dark:text-rose-400 flex items-center gap-2">
+              <i class="fa-solid fa-headset"></i>
+              التصنيف الرابع: حسب نوع الدعم (By Type of Support - Slides 22-24)
+            </h4>
+            <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 space-y-2 text-xs">
+              <div class="font-bold text-rose-600 dark:text-rose-400 en-text">1. Office Automation Systems (OAS)</div>
+              <div class="font-bold">نظم أتمتة المكاتب</div>
+              <p class="text-slate-600 dark:text-slate-300">
+                تساعد في الأنشطة المكتبية والإدارية اليومية <span class="en-text">(Clerical & administrative activities)</span> لتحسين التواصل والإنتاجية.
+                <br><strong>أمثلتها (سؤال امتحان!):</strong> معالجة النصوص <span class="en-text">(Word processing)</span>، البريد الإلكتروني <span class="en-text">(Email)</span>، وأدوات الجدولة <span class="en-text">(Scheduling tools)</span>.
+              </p>
+            </div>
+            <div class="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 space-y-2 text-xs">
+              <div class="font-bold text-blue-600 dark:text-blue-400 en-text">2. Management Support Systems (MSS)</div>
+              <div class="font-bold">نظم دعم الإدارة حسب المستوى:</div>
+              <ul class="space-y-1 text-slate-600 dark:text-slate-300">
+                <li>• <strong>Lower-level (الدنيا):</strong> Transactional & operational (تشغيلية).</li>
+                <li>• <strong>Middle-level (الوسطى):</strong> Tactical & analytical (تكتيكية وتحليلية).</li>
+                <li>• <strong>Top-level (العليا):</strong> Strategic & decision-oriented (استراتيجية).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice Quiz Lec 3 & 4 -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+        <h3 class="text-lg font-extrabold flex items-center gap-2">
+          <i class="fa-solid fa-bolt text-teal-500"></i>
+          تدريب تفاعلي على المحاضرة 3 و 4 (شامل أسئلة نهاية السلايدات)
+        </h3>
+        <div id="quiz-lec34" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 3: LECTURES 5 & 6 (Dimensions of Information: Personal & Organizational)
+         ========================================== -->
+    <section id="tab-lec56" class="tab-content hidden space-y-8">
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-purple-900 via-indigo-900 to-blue-900 text-white p-6 sm:p-8 shadow-xl">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/15 backdrop-blur-sm">
+              <i class="fa-solid fa-compass-drafting"></i> Lectures 5 & 6 • المحاضرة الخامسة والسادسة
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black">أبعاد وجودة المعلومات (Personal & Organizational Dimensions of Information)</h2>
+            <p class="text-purple-100 text-sm sm:text-base leading-relaxed">
+              كيف نميز بين المعلومة الجيدة والمعلومة السيئة؟ ندرس في هذا الجزء <strong>الأبعاد الشخصية الأربعة</strong> <span class="en-text font-bold">(Time, Location, Content, Form)</span>، و<strong>الأبعاد التنظيمية الثلاثة</strong> <span class="en-text font-bold">(Information Flows, Granularity, What Information Describes)</span> مع مثال قرار البنك.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-2.5 text-center shrink-0">
+            <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15">
+              <div class="text-base font-black text-amber-300 en-text">4 Personal</div>
+              <div class="text-xs text-purple-100 mt-1">Time • Location • Content • Form</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15">
+              <div class="text-base font-black text-emerald-300 en-text">3 Organizational</div>
+              <div class="text-xs text-purple-100 mt-1">Flows • Granularity • Describes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.1 Personal Dimensions of Information (Slides 3-8) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <span class="w-9 h-9 rounded-xl bg-purple-500/15 text-purple-600 dark:text-purple-400 flex items-center justify-center font-black">1</span>
+          <div>
+            <h3 class="text-xl font-extrabold">الأبعاد الشخصية للمعلومات (Personal Dimensions of Information - Slides 3-8)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">4 أبعاد رئيسية تحدد جودة المعلومة بالنسبة للمستخدم وصانع القرار</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- 1. Time Dimension -->
+          <div class="p-5 rounded-2xl bg-blue-500/5 border border-blue-500/20 space-y-3">
+            <div class="flex items-center justify-between">
+              <h4 class="font-extrabold text-blue-600 dark:text-blue-400 en-text text-base">1. Time Dimension (البعد الزمني)</h4>
+              <i class="fa-solid fa-clock text-blue-500 text-lg"></i>
+            </div>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li>• <strong class="en-text text-blue-500">Timeliness (التوقيت المناسب):</strong> Available when needed (متاحة عند الحاجة؛ مبكرة جداً = قديمة، متأخرة = عديمة الفائدة).</li>
+              <li>• <strong class="en-text text-blue-500">Currency (الآنية / الحداثة):</strong> Reflects current circumstances and possible future changes (تعكس الظروف الحالية).</li>
+              <li>• <strong class="en-text text-blue-500">Frequency (التكرار):</strong> Provided as often as needed (تقدم بالعدد المطلوب: أسبوعياً أو شهرياً).</li>
+              <li>• <strong class="en-text text-blue-500">Time Period (الفترة الزمنية):</strong> Covers past, present, and future (تغطي الماضي والحاضر والمستقبل).</li>
+            </ul>
+          </div>
+
+          <!-- 2. Location Dimension -->
+          <div class="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
+            <div class="flex items-center justify-between">
+              <h4 class="font-extrabold text-emerald-600 dark:text-emerald-400 en-text text-base">2. Location Dimension (البعد المكاني)</h4>
+              <i class="fa-solid fa-location-dot text-emerald-500 text-lg"></i>
+            </div>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li>• <strong>الوصول المستقل عن المكان:</strong> <span class="en-text">Access to information should be independent of location</span> (من المكتب، المنزل، الهاتف، أو أثناء السفر).</li>
+              <li>• مدعوم بالشبكات اللاسلكية و<strong>الحوسبة الشاملة <span class="en-text">(Ubiquitous Computing)</span></strong>.</li>
+              <li>• <strong>مثال المحاضرة (Citigroup Intranet):</strong> شبكة الإنترانت العالمية لبنك Citigroup حسنت تسليم مشاريع تكنولوجيا المعلومات بنسبة <strong>15%</strong>.</li>
+              <li class="text-rose-500 font-bold text-xs">⚠️ تريكة امتحان (سلايد 22): البعد المكاني لا يعني الوصول من مكان العمل فقط، بل من أي مكان!</li>
+            </ul>
+          </div>
+
+          <!-- 3. Content Dimension -->
+          <div class="p-5 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-3">
+            <div class="flex items-center justify-between">
+              <h4 class="font-extrabold text-amber-600 dark:text-amber-400 en-text text-base">3. Content Dimension (بعد المحتوى)</h4>
+              <span class="text-[11px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-600 dark:text-amber-300 en-text">Scope & Accuracy</span>
+            </div>
+            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li>1. <strong class="en-text text-amber-500">Accuracy (الدقة):</strong> Free from errors (خالية من الأخطاء).</li>
+              <li>2. <strong class="en-text text-amber-500">Relevance (الملاءمة):</strong> Fits the user's needs (تناسب احتياجات المستخدم).</li>
+              <li>3. <strong class="en-text text-amber-500">Completeness (الاكتمال):</strong> Includes all needed details (شاملة لكل التفاصيل المطلوبة).</li>
+              <li>4. <strong class="en-text text-amber-500">Conciseness (الإيجاز):</strong> Summarized and compact (مختصرة ومركزة، كالرسوم البيانية بدلاً من النصوص الطويلة).</li>
+              <li>5. <strong class="en-text text-amber-500">Scope (النطاق):</strong> Appropriate level of coverage (specific or general).</li>
+            </ul>
+          </div>
+
+          <!-- 4. Form Dimension -->
+          <div class="p-5 rounded-2xl bg-purple-500/5 border border-purple-500/20 space-y-3">
+            <div class="flex items-center justify-between">
+              <h4 class="font-extrabold text-purple-600 dark:text-purple-400 en-text text-base">4. Form Dimension (بعد الشكل والعرض)</h4>
+              <i class="fa-solid fa-chart-pie text-purple-500 text-lg"></i>
+            </div>
+            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li>1. <strong class="en-text text-purple-500">Clarity (الوضوح):</strong> Easy to read and interpret (سهلة القراءة والتفسير).</li>
+              <li>2. <strong class="en-text text-purple-500">Detail (التفصيل):</strong> Right level of info (ملخص مقابل تفصيل).</li>
+              <li>3. <strong class="en-text text-purple-500">Order (الترتيب):</strong> Logical sequence (ترتيب منطقي: الملخص أولاً ثم التفاصيل).</li>
+              <li>4. <strong class="en-text text-purple-500">Presentation (العرض):</strong> Effective visual format (tables, graphs).</li>
+              <li>5. <strong class="en-text text-purple-500">Media (الوسائط):</strong> Correct medium (مطبوع، شرائح عرض، رقمي).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Additional Characteristics of Info Quality (Slide 8) -->
+        <div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/70 space-y-2 text-xs">
+          <div class="font-bold text-sm text-indigo-600 dark:text-indigo-400">خصائص إضافية لجودة وموثوقية المعلومات (Additional Characteristics - Slide 8):</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5">
+            <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900"><strong>1. Reliability / Consistency (الاتساق والثبات):</strong> لا تتعارض بين الأنظمة بمرور الوقت.</div>
+            <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900"><strong>2. Integrity / Validity (النزاهة والصلاحية):</strong> مطابقة للقواعد ولم يتم العبث بها.</div>
+            <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900"><strong>3. Uniqueness / Non-duplication (عدم التكرار):</strong> منع السجلات المكررة التي تسبب تضارباً.</div>
+            <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900"><strong>4. Contextual Fitness (الملاءمة السياقية):</strong> مناسبة للغرض والسياق.</div>
+            <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900"><strong>5. Traceability / Auditability (إمكانية التتبع):</strong> معرفة مصدر المعلومة للمساءلة والأمان.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 Organizational Dimensions of Information (Slides 9-21) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <span class="w-9 h-9 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-black">2</span>
+          <div>
+            <h3 class="text-xl font-extrabold">الأبعاد التنظيمية للمعلومات (Organizational Dimensions - Slides 9-21)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">هرم المستويات الإدارية، اتجاهات التدفق الأربعة (Flows)، درجة التفصيل (Granularity)، وما تصفه المعلومات</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Pyramid of 4 Organizational Levels + Granularity (6 cols) -->
+          <div class="lg:col-span-6 space-y-4">
+            <h4 class="font-bold text-sm sm:text-base text-indigo-600 dark:text-indigo-400">
+              الهرم التنظيمي ودرجة تفصيل المعلومات (Pyramid & Granularity - Slides 11 & 17)
+            </h4>
+            <div class="space-y-2">
+              <div class="p-3.5 rounded-2xl bg-purple-600 text-white flex items-center justify-between">
+                <div>
+                  <div class="font-black text-sm en-text">1. Strategic Management (الإدارة الاستراتيجية)</div>
+                  <div class="text-xs text-purple-100">تحدد الرؤية والاتجاه العام • مثال الجامعة: <strong>Chancellor / President (رئيس الجامعة)</strong></div>
+                </div>
+                <span class="px-2.5 py-1 rounded-lg bg-black/25 text-amber-300 font-mono text-xs font-bold shrink-0 en-text">Coarse Granularity</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-indigo-600 text-white flex items-center justify-between">
+                <div>
+                  <div class="font-black text-sm en-text">2. Tactical Management (الإدارة التكتيكية)</div>
+                  <div class="text-xs text-indigo-100">تترجم الاستراتيجيات لأهداف • مثال الجامعة: <strong>Deans (عمداء الكليات)</strong></div>
+                </div>
+                <span class="px-2.5 py-1 rounded-lg bg-black/25 text-indigo-200 font-mono text-xs shrink-0">متوسطة التلخيص</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-blue-600 text-white flex items-center justify-between">
+                <div>
+                  <div class="font-black text-sm en-text">3. Operational Management (الإدارة التشغيلية)</div>
+                  <div class="text-xs text-blue-100">تدير العمليات اليومية • مثال الجامعة: <strong>Department Chairs (رؤساء الأقسام)</strong></div>
+                </div>
+                <span class="px-2.5 py-1 rounded-lg bg-black/25 text-blue-200 font-mono text-xs shrink-0">تفصيلية يومية</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-teal-600 text-white flex items-center justify-between">
+                <div>
+                  <div class="font-black text-sm en-text">4. Non-Management Employees (غير الإداريين)</div>
+                  <div class="text-xs text-teal-100">ينفذون الأنشطة اليومية • مثال الجامعة: <strong>Instructors (المحاضرون)</strong></div>
+                </div>
+                <span class="px-2.5 py-1 rounded-lg bg-black/25 text-emerald-300 font-mono text-xs font-bold shrink-0 en-text">Fine Granularity</span>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs space-y-1">
+              <div class="font-bold text-amber-600 dark:text-amber-400">مفهوم درجة التفصيل (Information Granularity - Slide 17):</div>
+              <div>• <strong>Fine Granularity (تركيز دقيق / مفصل):</strong> معلومات مفصلة للغاية (مثل معاملات البيع الفردية) يحتاجها الموظفون في القاعدة.</div>
+              <div>• <strong>Coarse Granularity (تركيز خشن / ملخص):</strong> معلومات ملخصة للغاية (مثل إجمالي المبيعات السنوية) تستخدمها الإدارة الاستراتيجية.</div>
+              <div class="font-bold text-indigo-500 pt-1">★ القاعدة: تتحول المعلومات من <span class="en-text">Fine</span> إلى <span class="en-text">Coarse</span> كلما اتجهنا لأعلى الهرم <span class="en-text">(Consolidated upward)</span>.</div>
+            </div>
+          </div>
+
+          <!-- 4 Information Flows + What Information Describes (6 cols) -->
+          <div class="lg:col-span-6 space-y-4">
+            <h4 class="font-bold text-sm sm:text-base text-teal-600 dark:text-teal-400">
+              البعد الأول: اتجاهات تدفق المعلومات الأربعة (4 Information Flows - Slides 13-15)
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+                <div class="font-bold text-emerald-500 en-text">1. Upward Flow (التدفق الصاعد ↑)</div>
+                <p class="text-slate-600 dark:text-slate-300">يصف <strong>الحالة الراهنة للمنظمة (Current state)</strong>؛ ينشأ من المعاملات اليومية بالأسفل ويُلخص أثناء صعوده للمديرين.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+                <div class="font-bold text-blue-500 en-text">2. Downward Flow (التدفق الهابط ↓)</div>
+                <p class="text-slate-600 dark:text-slate-300">يتكون من <strong>الاستراتيجيات والأهداف والتوجيهات (Strategies, goals, directives)</strong> من الإدارة العليا للمستويات الدنيا.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+                <div class="font-bold text-amber-500 en-text">3. Horizontal Flow (التدفق الأفقي ↔)</div>
+                <p class="text-slate-600 dark:text-slate-300">بين الوحدات الوظيفية وفرق العمل في نفس المستوى (مثال: مشاركة الأقسام الأكاديمية للجداول مع مكتب المسجل).</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+                <div class="font-bold text-purple-500 en-text">4. Inward/Outward Flow (داخلي/خارجي ⇕)</div>
+                <p class="text-slate-600 dark:text-slate-300">التواصل مع <strong>العملاء والموردين والشركاء</strong> خارج المنظمة؛ وهو <strong>أساس التجارة الإلكترونية (E-commerce)</strong>.</p>
+              </div>
+            </div>
+
+            <!-- Dimension 3: What Information Describes & Bank Example -->
+            <div class="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 space-y-2 text-xs">
+              <div class="font-bold text-indigo-600 dark:text-indigo-400 text-sm">البعد الثالث: ما تصفه المعلومات ومثال البنك (What Information Describes - Slides 19-20):</div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900">
+                  <strong class="en-text text-blue-500">• Internal (داخلية):</strong> تصف العمليات داخل المنظمة (مثال البنك: <em>كم عدد عملائنا؟</em>).
+                </div>
+                <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900">
+                  <strong class="en-text text-teal-500">• External (خارجية):</strong> تصف البيئة المحيطة (مثال البنك: <em>ما أسعار الفائدة التي تقدمها البنوك الأخرى؟</em>).
+                </div>
+                <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900">
+                  <strong class="en-text text-emerald-500">• Objective (موضوعية):</strong> تصف كمياً شيئاً <strong>معروفاً وحقيقياً (Known)</strong> (مثال: <em>كم سعر الفائدة الأساسي اليوم؟</em>).
+                </div>
+                <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900">
+                  <strong class="en-text text-rose-500">• Subjective (ذاتية / تقديرية):</strong> تحاول وصف شيء <strong>غير معروف (Unknown)</strong> كالتوقعات (مثال: <em>كم يُتوقع أن يكون سعر الفائدة مستقبلاً؟</em>).
+                </div>
+              </div>
+              <div class="text-[11px] font-bold text-amber-600 dark:text-amber-400 pt-1">
+                💡 ملاحظة هامة (سلايد 20): سعر الفائدة الحالي لبنك منافس يعتبر معلومة <strong>خارجية وموضوعية معاً (Both External and Objective)</strong>!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice Quiz Lec 5 & 6 -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+        <h3 class="text-lg font-extrabold flex items-center gap-2">
+          <i class="fa-solid fa-bolt text-purple-500"></i>
+          تدريب تفاعلي على المحاضرة 5 و 6 (شامل أسئلة نهاية السلايدات)
+        </h3>
+        <div id="quiz-lec56" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 4: LECTURE 7 (Organizational Levels, 8 MIS Supports & TPS Deep Dive)
+         ========================================== -->
+    <section id="tab-lec7" class="tab-content hidden space-y-8">
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-slate-900 via-blue-950 to-indigo-950 text-white p-6 sm:p-8 shadow-xl">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/15 backdrop-blur-sm">
+              <i class="fa-solid fa-microchip"></i> Lecture 7 • المحاضرة السابعة كاملة
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black">العلاقة بين نظم المعلومات والمنظمات ونظم معالجة المعاملات (TPS)</h2>
+            <p class="text-blue-100 text-sm sm:text-base leading-relaxed">
+              تغطي هذه المحاضرة المستويات الإدارية الثلاثة، أنواع التقارير والدعم الـ 8 التي يقدمها <span class="en-text font-bold">MIS</span> للإدارة الوسطى، ودراسة تفصيلية لنظم معالجة المعاملات <span class="en-text font-bold">(TPS)</span>: معماريتها، نظام الرواتب <span class="en-text font-bold">Payroll TPS</span>، خصائصها الـ 5، وأنشطتها الـ 6.
+            </p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-center shrink-0">
+            <div class="text-xs text-blue-200">تسلسل النظم في المنظمة</div>
+            <div class="text-sm sm:text-base font-black text-emerald-300 en-text mt-1">TPS ➔ MIS ➔ DSS ➔ ESS</div>
+            <div class="text-[11px] text-slate-300 mt-1">TPS يغذي جميع الأنظمة الأعلى بالبيانات</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.1 8 Supports Provided by MIS for Management-Level (Table 4 - Slide 8) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <span class="w-9 h-9 rounded-xl bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center font-black">1</span>
+          <div>
+            <h3 class="text-xl font-extrabold">أوجه الدعم والتقارير الـ 8 التي يوفرها MIS للإدارة (Table 4 - Slide 8)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">كيف يدعم MIS مديري المستوى الأوسط في المراقبة والرقابة واتخاذ القرار؟</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 en-text">1. Statistical summaries</div>
+            <div class="font-bold text-sm">الملخصات الإحصائية</div>
+            <p class="text-slate-500 dark:text-slate-400">ملخصات للبيانات الخام الجديدة (مثل الإنتاج اليومي لكل صنف، استهلاك الكهرباء الشهري).</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-1">
+            <div class="font-bold text-amber-600 dark:text-amber-400 en-text">2. Exception reports ★</div>
+            <div class="font-bold text-sm">تقارير الاستثناءات</div>
+            <p class="text-slate-600 dark:text-slate-300">تقارن الأداء الفعلي بالمعايير وتعرض <strong>فقط الحالات التي حدث فيها انحراف يتجاوز حداً معيناً (مثل أعلى أو أقل من 5%)</strong>.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-emerald-600 dark:text-emerald-400 en-text">3. Periodic reports</div>
+            <div class="font-bold text-sm">التقارير الدورية</div>
+            <p class="text-slate-500 dark:text-slate-400">تُصدر في فترات زمنية محددة مسبقاً <span class="en-text">(Predetermined intervals: weekly, monthly)</span>.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-purple-500/10 border border-purple-500/30 space-y-1">
+            <div class="font-bold text-purple-600 dark:text-purple-400 en-text">4. Ad-hoc reports ★</div>
+            <div class="font-bold text-sm">التقارير الفورية (حسب الطلب)</div>
+            <p class="text-slate-600 dark:text-slate-300">تُنشأ فوراً عند الحاجة وبناءً على الطلب <span class="en-text">(Generated as needed, on demand)</span>.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-teal-600 dark:text-teal-400 en-text">5. Comparative analysis</div>
+            <div class="font-bold text-sm">التحليل المقارن والاكتشاف المبكر</div>
+            <p class="text-slate-500 dark:text-slate-400">مقارنة الأداء بالمقاييس واكتشاف أي تغيرات غير طبيعية مبكراً.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-indigo-600 dark:text-indigo-400 en-text">6. Projections</div>
+            <div class="font-bold text-sm">التوقعات المستقبلية</div>
+            <p class="text-slate-500 dark:text-slate-400">توقع المبيعات المستقبلية، التدفقات النقدية، والحصة السوقية.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-rose-600 dark:text-rose-400 en-text">7. Automation of routine decisions</div>
+            <div class="font-bold text-sm">أتمتة القرارات الروتينية</div>
+            <p class="text-slate-500 dark:text-slate-400">نماذج قياسية للقرارات المتكررة مثل متى وكم نطلب من المخزون أو جدولة العمل.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-cyan-600 dark:text-cyan-400 en-text">8. Connection & collaboration</div>
+            <div class="font-bold text-sm">التواصل والتعاون الجماعي</div>
+            <p class="text-slate-500 dark:text-slate-400">نظم المراسلة عبر الويب، البريد الإلكتروني، والبرمجيات الجماعية <span class="en-text">(Groupware)</span>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.2 TPS Deep Dive: Architecture, Properties, Types & Payroll Example (Slides 10-19) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <span class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black">2</span>
+          <div>
+            <h3 class="text-xl font-extrabold">نظم معالجة المعاملات بالتفصيل (Transaction Processing Systems - TPS)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">أقدم النظم المحوسبة • المعمارية ثلاثية الطبقات • الخصائص الـ 5 • نظام الرواتب Payroll TPS</p>
+          </div>
+        </div>
+
+        <!-- 3 Layers of TPS Architecture & Types of Transactions -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3">
+            <h4 class="font-bold text-indigo-600 dark:text-indigo-400 en-text">TPS 3-Layer Architecture (معمارية TPS - Slide 11)</h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <strong class="en-text text-blue-500">1. User Interface Layer (طبقة واجهة المستخدم):</strong> Data entry and system interaction (إدخال البيانات والتفاعل مع النظام).
+              </div>
+              <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <strong class="en-text text-purple-500">2. Processing Layer (طبقة المعالجة):</strong> Performs calculations and business logic (تنفيذ العمليات الحسابية ومنطق الأعمال).
+              </div>
+              <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <strong class="en-text text-emerald-500">3. Database Layer (طبقة قاعدة البيانات):</strong> Stores historical data and transaction records (تخزين السجلات التاريخية والمعاملات).
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3">
+            <h4 class="font-bold text-teal-600 dark:text-teal-400">أنواع نظم ومعاملات TPS (Slides 14 & 15)</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+              <div class="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                <div class="font-bold text-blue-600 dark:text-blue-400 en-text">Types of TPS (نوعا النظام):</div>
+                <div>• <strong>1. Online Systems:</strong> فورية (ATM، طلبات الهاتف، الحجوزات).</div>
+                <div>• <strong>2. Batch Systems:</strong> مجمعة (الشيكات البنكية ليلاً، الرواتب، الفواتير الشهرية).</div>
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+                <div class="font-bold text-emerald-600 dark:text-emerald-400 en-text">Types of Transactions (المعاملات):</div>
+                <div>• <strong>1. Internal (داخلية):</strong> التوظيف (Recruitment)، الحضور والانصراف، نقل المواد بين المخازن.</div>
+                <div>• <strong>2. External (خارجية):</strong> البيع (Sales)، الشراء (Purchases)، خدمة العملاء.</div>
+              </div>
+            </div>
+            <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs">
+              <strong>مثال نظام الرواتب (Payroll TPS - Slides 12-13):</strong> يأخذ بيانات الموظفين من الأقسام وملف الرواتب الرئيسي <span class="en-text">(Payroll Master File: Number, Name, Pay rate, Gross pay, Taxes, FICA)</span> ويصدر: شيكات الموظفين <span class="en-text">(Employee checks)</span>، تقارير الإدارة، المستندات الحكومية، وقيود الأستاذ العام <span class="en-text">(General Ledger)</span>.
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 Key Properties of TPS (Slide 16 - VERY IMPORTANT) -->
+        <div class="space-y-3">
+          <h4 class="font-extrabold text-base text-rose-600 dark:text-rose-400 flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved"></i>
+            الخصائص الخمس الأساسية لنظم معالجة المعاملات (5 TPS Properties - Slide 16 ★ موضع سؤال مؤكد)
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+            <div class="p-4 rounded-2xl bg-rose-500/5 border border-rose-500/20 space-y-1">
+              <div class="font-bold text-rose-600 dark:text-rose-400 en-text">1. Consistency (الاتساق)</div>
+              <p class="text-slate-600 dark:text-slate-300">Each transaction must correctly transform the system's state following valid program logic.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-1">
+              <div class="font-bold text-amber-600 dark:text-amber-400 en-text">2. Isolation (الاستقلالية / العزل) ★</div>
+              <p class="text-slate-600 dark:text-slate-300">المعاملات المتزامنة تُنفذ وكأنها بترتيب تسلسلي (مثال: إذا اشترى شخصان آخر قطعة في المخزون في نفس اللحظة، يعالج النظام إحداهما أولاً ثم الأخرى).</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-1">
+              <div class="font-bold text-emerald-600 dark:text-emerald-400 en-text">3. Reliability (الموثوقية)</div>
+              <p class="text-slate-600 dark:text-slate-300">تسجيل جميع المعاملات بطريقة منهجية ومتسلسلة لتقليل الأخطاء وضمان الاعتمادية.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-blue-500/5 border border-blue-500/20 space-y-1">
+              <div class="font-bold text-blue-600 dark:text-blue-400 en-text">4. Standardization (التوحيد القياسي)</div>
+              <p class="text-slate-600 dark:text-slate-300">يجب معالجة المعاملات بنفس الطريقة القياسية في كل مرة لتعظيم الكفاءة.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-purple-500/5 border border-purple-500/20 space-y-1">
+              <div class="font-bold text-purple-600 dark:text-purple-400 en-text">5. Controlled Access (التحكم في الوصول)</div>
+              <p class="text-slate-600 dark:text-slate-300">قصر الوصول إلى البيانات الحساسة والسرية على المستخدمين المصرح لهم فقط <span class="en-text">(Authorized users only)</span>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 Transaction Processing Activities Flowchart (Slides 20-21) -->
+        <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-800/70 space-y-4">
+          <h4 class="font-extrabold text-sm sm:text-base text-indigo-600 dark:text-indigo-400 flex items-center gap-2">
+            <i class="fa-solid fa-diagram-next"></i>
+            الأنشطة الـ 6 لدورة معالجة المعاملات في TPS (Transaction Processing Activities - Slides 20 & 21)
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 text-xs">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border-t-4 border-blue-500">
+              <div class="font-bold en-text text-blue-500">1. Data Collection</div>
+              <div class="font-bold">جمع البيانات</div>
+              <p class="text-slate-500 mt-1">التقاط البيانات اللازمة للمعاملة (Original Data).</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border-t-4 border-amber-500">
+              <div class="font-bold en-text text-amber-500">2. Data Editing</div>
+              <div class="font-bold">فحص وتحرير البيانات</div>
+              <p class="text-slate-500 mt-1">التحقق من صحة واكتمال البيانات <span class="en-text">(Check validity & completeness)</span>.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border-t-4 border-rose-500">
+              <div class="font-bold en-text text-rose-500">3. Data Correction</div>
+              <div class="font-bold">تصحيح البيانات</div>
+              <p class="text-slate-500 mt-1">إذا كانت البيانات خاطئة <span class="en-text">(Bad Data)</span> يتم تصحيحها وإعادتها للجمع.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border-t-4 border-purple-500">
+              <div class="font-bold en-text text-purple-500">4. Data Manipulation</div>
+              <div class="font-bold">معالجة وحساب البيانات</div>
+              <p class="text-slate-500 mt-1">إذا كانت صحيحة <span class="en-text">(Good Data)</span> يتم الحساب والتلخيص والمعالجة.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border-t-4 border-emerald-500">
+              <div class="font-bold en-text text-emerald-500">5. Data Storage</div>
+              <div class="font-bold">تخزين البيانات</div>
+              <p class="text-slate-500 mt-1">تحديث المعاملات في قواعد البيانات <span class="en-text">(Update Databases)</span>.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border-t-4 border-teal-500">
+              <div class="font-bold en-text text-teal-500">6. Document Production</div>
+              <div class="font-bold">إصدار المستندات والتقارير</div>
+              <p class="text-slate-500 mt-1">إخراج الفواتير، الإيصالات، وتقارير TPS.</p>
+            </div>
+          </div>
+          <div class="text-xs text-slate-600 dark:text-slate-300 pt-1">
+            <strong>الخصائص الـ 8 الكبرى لـ TPS (Slides 18-19):</strong> يتعامل مع <strong>بيانات تاريخية (Historical data)</strong> لأنشطة حدثت بالفعل • يرتبط <strong>بكل المجالات الوظيفية</strong> • يقيم الأداء • مصادره ومخرجاته <strong>داخلية غالباً (Internal)</strong> • معالجة منتظمة • سرعة معالجة عالية • مدخلات ومخرجات <strong>مهيكلة/قياسية (Structured)</strong> • دقة ونزاهة وأمان عالٍ.
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice Quiz Lec 7 -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+        <h3 class="text-lg font-extrabold flex items-center gap-2">
+          <i class="fa-solid fa-bolt text-blue-500"></i>
+          تدريب تفاعلي على المحاضرة 7 (شامل أسئلة نهاية السلايدات)
+        </h3>
+        <div id="quiz-lec7" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 5: FULL BILINGUAL MIDTERM EXAM (10 T/F + 10 MCQ + 10 Fill-in-the-Blank)
+         ========================================== -->
+    <section id="tab-exam" class="tab-content hidden space-y-8">
+      <!-- Exam Header & Scoreboard -->
+      <div class="bg-gradient-to-l from-slate-900 via-blue-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-blue-500/30 shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-bold">
+                نموذج امتحان الميدتيرم الشامل (Midterm Exam Simulator)
+              </span>
+              <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold">
+                ثنائي اللغة (عربي + English)
+              </span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black">امتحان منتصف الفصل - نظم المعلومات الإدارية (MIS)</h2>
+            <p class="text-slate-300 text-xs sm:text-sm">
+              مطابق للمواصفات المطلوبة تماماً: <strong>10 صح وغلط (True/False)</strong> + <strong>10 اختيار من متعدد (MCQ)</strong> + <strong>10 أكمل الفراغات (Fill in the Blanks)</strong> باللغتين العربية والإنجليزية.
+            </p>
+          </div>
+
+          <!-- Live Score & Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 shrink-0">
+            <div class="text-center px-4 border-l border-white/10">
+              <div class="text-xs text-slate-400">مجموع درجاتك الكلي</div>
+              <div id="exam-total-score" class="text-3xl font-black text-emerald-400 font-mono">0 / 30</div>
+              <div id="exam-sub-scores" class="text-[11px] text-slate-300 mt-0.5">صح وغلط: 0/10 • اختر: 0/10 • أكمل: 0/10</div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <button onclick="revealAllExam()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all">
+                <i class="fa-solid fa-eye ml-1"></i> إظهار جميع الإجابات النموذجية
+              </button>
+              <button onclick="resetFullExam()" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-200 text-xs font-bold transition-all">
+                <i class="fa-solid fa-rotate-right ml-1"></i> إعادة الامتحان من جديد
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 1: 10 TRUE / FALSE QUESTIONS (10 صح وغلط) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black">1</span>
+            <div>
+              <h3 class="text-xl font-extrabold">السؤال الأول: صح أم خطأ (Part 1: True or False - 10 Points)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">كل سؤال مكتوب بالإنجليزية والعربية مع التصحيح العلمي الفوري</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400">10 درجات</span>
+        </div>
+        <div id="exam-tf-list" class="space-y-3"></div>
+      </div>
+
+      <!-- PART 2: 10 MULTIPLE CHOICE QUESTIONS (10 اختيار من متعدد) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-black">2</span>
+            <div>
+              <h3 class="text-xl font-extrabold">السؤال الثاني: اختر الإجابة الصحيحة (Part 2: Multiple Choice - 10 Points)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">10 أسئلة اختياري شاملة جميع محاضرات المنهج بالعربي والإنجليزي</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-teal-500/15 text-teal-600 dark:text-teal-400">10 درجات</span>
+        </div>
+        <div id="exam-mcq-list" class="space-y-4"></div>
+      </div>
+
+      <!-- PART 3: 10 FILL-IN-THE-BLANK QUESTIONS (10 أكمل الفراغات) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-2xl bg-purple-600 text-white flex items-center justify-center font-black">3</span>
+            <div>
+              <h3 class="text-xl font-extrabold">السؤال الثالث: أكمل العبارات الآتية (Part 3: Fill in the Blanks - 10 Points)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">يمكنك كتابة المصطلح بالإنجليزية أو بالعربية (أو الضغط على الكلمة من بنك الكلمات المساعد بالأسفل)</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-purple-500/15 text-purple-600 dark:text-purple-400">10 درجات</span>
+        </div>
+
+        <!-- Helper Word Bank -->
+        <div class="p-4 rounded-2xl bg-purple-500/5 border border-purple-500/20 space-y-2">
+          <div class="text-xs font-bold text-purple-600 dark:text-purple-400">
+            <i class="fa-solid fa-wand-magic-sparkles ml-1"></i> بنك المصطلحات المساعد (Word Bank - باللغتين الإنجليزية والعربية):
+          </div>
+          <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Information Technology (IT) / تكنولوجيا المعلومات</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Integration / التكامل</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Online & Batch / الفورية والدفعات</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Subjective / ذاتية</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">IOS / نظم بين المنظمات</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Data Editing / تحرير البيانات</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Expert Systems (ES) / النظم الخبيرة</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Knowledge & Wisdom / المعرفة والحكمة</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Exception Reports / تقارير الاستثناءات</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Coarse & Fine / خشنة ودقيقة</span>
+          </div>
+        </div>
+
+        <div id="exam-fib-list" class="space-y-4"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 mt-12 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+    منصة نظم المعلومات الإدارية (MIS - Management Information Systems) • مراجعة الميدتيرم الشاملة (المحاضرات 1 – 7) • بالتوفيق والامتياز!
+  </footer>
+
+  <!-- ==========================================
+       JAVASCRIPT LOGIC & BILINGUAL QUESTION BANKS
+       ========================================== -->
+  <script>
+    // 1. Theme Toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.classList.toggle('dark');
+      const isDark = html.classList.contains('dark');
+      const iconClass = isDark ? 'fa-solid fa-sun text-amber-400' : 'fa-solid fa-moon text-blue-600';
+      document.getElementById('theme-icon-mobile').className = iconClass;
+      document.getElementById('theme-icon-desktop').className = iconClass;
+    }
+
+    // 2. Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById('tab-' + tabId).classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('tab-active'));
+      document.getElementById('tab-btn-' + tabId).classList.add('tab-active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 3. DIKW Interactive Pyramid Details
+    const dikwDetails = [
+      {
+        title: '1. Data (البيانات - المستوى الأول الأساسي)',
+        en: 'Raw facts and figures without context (unprocessed).',
+        ar: 'هي حقائق وأرقام خام أولية غير معالجة وبدون سياق (مثل أرقام مبيعات متفرقة أو أسماء بدون ترتيب).',
+        ex: 'مثال: الرقم "1000" أو اسم منتج بمفرده بدون معرفة هل هو كمية أم سعر.'
+      },
+      {
+        title: '2. Information (المعلومات - المستوى الثاني)',
+        en: 'Data that has been organized and processed into a meaningful form.',
+        ar: 'بيانات تمت معالجتها وتنظيمها في شكل ذي معنى وسياق واضح يفيد المستخدم.',
+        ex: 'مثال (سلايد 7): تقرير المبيعات الشهرية الذي يوضح أن إجمالي مبيعات المنتج 1 في يناير هو $4600.'
+      },
+      {
+        title: '3. Knowledge (المعرفة - المستوى الثالث)',
+        en: 'Information combined with experience, context, patterns, and interpretation.',
+        ar: 'المعلومات مدمجة مع الخبرة البشرية، السياق، استخراج الأنماط (Patterns)، والفهم والتفسير.',
+        ex: 'مثال (سلايد 9 خرائط المرور): فهم أن الطريق M-30 مزدحم باللون الأحمر في هذا التوقيت بناءً على بيانات السرعة.'
+      },
+      {
+        title: '4. Wisdom (الحكمة - قمة الهرم)',
+        en: 'Understanding when and how to apply knowledge ethically and effectively; sound judgment.',
+        ar: 'فهم متى وكيف نطبق المعرفة بشكل أخلاقي وفعال لاتخاذ القرار والحكم السليم للمستقبل.',
+        ex: 'مثال: اختيار المسار البديل الأسرع (15 دقيقة) أو اتخاذ قرار استراتيجي لتوسيع خط إنتاج معين.'
+      }
+    ];
+
+    function selectDIKW(idx) {
+      const item = dikwDetails[idx];
+      document.getElementById('dikw-detail-box').innerHTML = `
+        <div class="font-extrabold text-indigo-600 dark:text-indigo-400 text-sm sm:text-base">${item.title}</div>
+        <div class="font-semibold en-text text-slate-800 dark:text-slate-200">${item.en}</div>
+        <div class="text-slate-600 dark:text-slate-300">${item.ar}</div>
+        <div class="text-xs text-emerald-600 dark:text-emerald-400 font-bold pt-1">💡 ${item.ex}</div>
+      `;
+    }
+
+    // 4. Practice Quizzes per Tab
+    const practiceQuizzes = {
+      lec12: [
+        {
+          q: '1. According to the Principle of Exception in MIS (وفقاً لمبدأ الاستثناء):',
+          options: [
+            'All raw daily data should be sent to top management',
+            'Only exceptional information requiring action reaches higher management',
+            'Each department works isolated from others',
+            'Data should be duplicated across departments'
+          ],
+          ans: 1,
+          exp: 'مبدأ الاستثناء ينص على أن المعلومات الاستثنائية (الانحرافات التي تتطلب قراراً) هي فقط التي ترفع للإدارة العليا.'
+        },
+        {
+          q: '2. Which organizational structure has few or no middle managers and promotes faster decisions? (أي هيكل تنظيمي يقل فيه المديرون في الوسط ويسرع القرار؟)',
+          options: ['Hierarchical Structure (الهيكل الهرمي)', 'Flat Structure (الهيكل المسطح)', 'Centralized Pyramid', 'Manual Structure'],
+          ans: 1,
+          exp: 'الهيكل المسطح (Flat Structure) يتميز بقلة أو انعدام الإدارة الوسطى مما يعزز العمل الجماعي وسرعة القرار.'
+        }
+      ],
+      lec34: [
+        {
+          q: '1. Which of the following is an example of Office Automation Systems (OAS)? (سؤال سلايد 30 محاضرة 4)',
+          options: ['A) Email system (نظام البريد الإلكتروني)', 'B) Manufacturing robot', 'C) Expert system', 'D) ERP system'],
+          ans: 0,
+          exp: 'نظم أتمتة المكاتب (OAS) تشمل البريد الإلكتروني (Email)، معالجة النصوص (Word processing)، والجدولة.'
+        },
+        {
+          q: '2. What is the relationship between Information Technology (IT) and Information Systems (IS)? (سلايد 14 و 23 محاضرة 3)',
+          options: [
+            'IT is broader than IS',
+            'IT is a subsystem of IS (IT جزء فرعي من IS)',
+            'CBIS never involves human participation',
+            'Physical inventory is a core component of MIS'
+          ],
+          ans: 1,
+          exp: 'تكنولوجيا المعلومات (IT) هي نظام فرعي من نظم المعلومات (IS)، لأن IS = IT + People + Processes.'
+        }
+      ],
+      lec56: [
+        {
+          q: '1. Which of the following is NOT a personal dimension of information? (سؤال سلايد 22 محاضرة 5)',
+          options: ['A) Time (الزمن)', 'B) Location (المكان)', 'C) Organizational (التنظيمي)', 'D) Form (الشكل)'],
+          ans: 2,
+          exp: 'الأبعاد الشخصية الأربعة هي: Time, Location, Content, Form. أما Organizational فهو تصنيف آخر مستقل.'
+        },
+        {
+          q: '2. Timeliness in the time dimension refers to: (سؤال سلايد 22 محاضرة 5)',
+          options: [
+            'A) The accuracy of data',
+            'B) The speed of the network',
+            'C) Information being available when needed (توفر المعلومة عند الحاجة)',
+            'D) How detailed the information is'
+          ],
+          ans: 2,
+          exp: 'التوقيت المناسب (Timeliness) يعني توفر المعلومة في الوقت الذي نحتاجها فيه.'
+        }
+      ],
+      lec7: [
+        {
+          q: '1. Which of the following is NOT a main organizational level served by systems? (سؤال سلايد 30 محاضرة 7)',
+          options: ['a) Operational (التشغيلي)', 'b) Management (الإداري)', 'c) Strategic (الاستراتيجي)', 'd) Personal (الشخصي)'],
+          ans: 3,
+          exp: 'المستويات التنظيمية الثلاثة في هرم المنظمة هي: Operational, Management (Tactical), Strategic.'
+        },
+        {
+          q: '2. In TPS, checking the validity and completeness of data before manipulation is called: (سلايد 20-21 محاضرة 7)',
+          options: ['Data Collection', 'Data Editing (فحص وتحرير البيانات)', 'Data Storage', 'Document Production'],
+          ans: 1,
+          exp: 'عملية Data Editing هي فحص صلاحية واكتمال البيانات لمعرفة هل هي Good Data أم Bad Data تحتاج لتصحيح.'
+        }
+      ]
+    };
+
+    function renderPracticeQuizzes() {
+      Object.keys(practiceQuizzes).forEach(key => {
+        const container = document.getElementById('quiz-' + key);
+        const list = practiceQuizzes[key];
+        container.innerHTML = list.map((item, qIdx) => `
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3">
+            <div class="font-bold text-xs sm:text-sm">${item.q}</div>
+            <div class="grid grid-cols-1 gap-2">
+              ${item.options.map((opt, oIdx) => `
+                <button onclick="checkPractice('${key}', ${qIdx}, ${oIdx})" id="prac-${key}-${qIdx}-${oIdx}" class="text-right px-3 py-2 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-blue-500 transition-all">
+                  ${opt}
+                </button>
+              `).join('')}
+            </div>
+            <div id="prac-exp-${key}-${qIdx}" class="hidden p-2.5 rounded-xl text-xs"></div>
+          </div>
+        `).join('');
+      });
+    }
+
+    function checkPractice(key, qIdx, selectedIdx) {
+      const item = practiceQuizzes[key][qIdx];
+      item.options.forEach((_, oIdx) => {
+        const btn = document.getElementById(`prac-${key}-${qIdx}-${oIdx}`);
+        if (oIdx === item.ans) {
+          btn.className = 'text-right px-3 py-2 rounded-xl text-xs font-bold border border-emerald-500 bg-emerald-500/20 text-emerald-700 dark:text-emerald-300';
+        } else if (oIdx === selectedIdx) {
+          btn.className = 'text-right px-3 py-2 rounded-xl text-xs font-bold border border-rose-500 bg-rose-500/20 text-rose-700 dark:text-rose-300';
+        }
+      });
+      const expEl = document.getElementById(`prac-exp-${key}-${qIdx}`);
+      expEl.classList.remove('hidden');
+      expEl.className = selectedIdx === item.ans
+        ? 'p-2.5 rounded-xl text-xs bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20'
+        : 'p-2.5 rounded-xl text-xs bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20';
+      expEl.innerHTML = `<strong>${selectedIdx === item.ans ? '✓ إجابة صحيحة!' : '✗ انتبه:'}</strong> ${item.exp}`;
+    }
+
+    // ==========================================
+    // 5. FULL MIDTERM EXAM DATA (10 T/F + 10 MCQ + 10 Fill-in-the-Blank)
+    // ==========================================
+    const examTFQuestions = [
+      {
+        en: '1. Classifying information systems helps organizations understand system structures and uses.',
+        ar: '١. تصنيف نظم المعلومات يساعد المنظمات على فهم هياكل واستخدامات النظام.',
+        ans: true,
+        exp: 'True (صح - Lec 4 Slide 30): التصنيف يسهل فهم هيكل النظام والغرض منه ومقارنة البدائل.'
+      },
+      {
+        en: '2. Batch processing systems process each transaction immediately as it is entered.',
+        ar: '٢. تقوم نظم المعالجة بالدفعات (Batch Processing) بمعالجة كل معاملة فوراً لحظة إدخالها.',
+        ans: false,
+        exp: 'False (خطأ - Lec 4 Slide 30): نظم Batch تجمع المعاملات وتعالجها لاحقاً في دفعة واحدة، بينما نظم Real-Time هي التي تعالجها فوراً.'
+      },
+      {
+        en: '3. A Computer-Based Information System (CBIS) never involves human participation.',
+        ar: '٣. نظام المعلومات المبني على الحاسب (CBIS) لا يتضمن أبداً أي مشاركة بشرية.',
+        ans: false,
+        exp: 'False (خطأ - Lec 3 Slide 23): الأفراد (People) هم مكون أساسي في CBIS إلى جانب الأجهزة والبرمجيات والبيانات والشبكات.'
+      },
+      {
+        en: '4. The location dimension of information means that information should be accessible only from the workplace.',
+        ar: '٤. البعد المكاني للمعلومات (Location Dimension) يعني أنه يجب الوصول للمعلومات من مكان العمل فقط.',
+        ans: false,
+        exp: 'False (خطأ - Lec 5 Slide 22): البعد المكاني يعني إمكانية الوصول للمعلومات من أي مكان (المكتب، المنزل، الهاتف، السفر).'
+      },
+      {
+        en: '5. Consistency, isolation, reliability, standardization, and controlled access are key properties of TPS.',
+        ar: '٥. الاتساق، الاستقلالية، الموثوقية، التوحيد القياسي، والتحكم في الوصول هي خصائص أساسية لنظم معالجة المعاملات (TPS).',
+        ans: true,
+        exp: 'True (صح - Lec 7 Slide 16 & 30): هذه هي الخصائص الخمس الأساسية لـ TPS.'
+      },
+      {
+        en: '6. Transaction Processing Systems (TPS) are mainly used by senior management for long-term strategic planning.',
+        ar: '٦. تُستخدم نظم معالجة المعاملات (TPS) بشكل أساسي من قِبل الإدارة العليا للتخطيط الاستراتيجي طويل المدى.',
+        ans: false,
+        exp: 'False (خطأ - Lec 7 Slide 30): تُستخدم TPS في المستوى التشغيلي (Operational level) للمعاملات اليومية، بينما تستخدم الإدارة العليا نظم EIS/ESS.'
+      },
+      {
+        en: '7. According to the Principle of Exception, only exceptional information that requires action should reach higher management.',
+        ar: '٧. وفقاً لمبدأ الاستثناء (Principle of Exception)، فإن المعلومات الاستثنائية التي تتطلب إجراءً هي فقط التي يجب أن تصل للإدارة العليا.',
+        ans: true,
+        exp: 'True (صح - Lec 2 Slide 5): لمنع تكدس المعلومات (Information Overload) لدى الإدارة العليا.'
+      },
+      {
+        en: '8. As information flows upward through an organization, its granularity changes from Coarse (summarized) to Fine (detailed).',
+        ar: '٨. كلما تدفقت المعلومات لأعلى داخل المنظمة، تتغير درجة تفصيلها (Granularity) من خشنة (ملخصة) إلى دقيقة (مفصلة).',
+        ans: false,
+        exp: 'False (خطأ - Lec 6 Slide 17 & 21): العكس صحيح؛ تتغير من Fine (دقيقة ومفصلة في القاعدة) إلى Coarse (ملخصة في القمة).'
+      },
+      {
+        en: '9. Information Technology (IT) is broader than Information Systems (IS) because IT encompasses people and business processes.',
+        ar: '٩. تكنولوجيا المعلومات (IT) أوسع من نظم المعلومات (IS) لأن IT تشمل الأفراد والعمليات الإدارية.',
+        ans: false,
+        exp: 'False (خطأ - Lec 3 Slide 14): نظم المعلومات (IS) هي الأوسع، بينما IT هي نظام فرعي (Subsystem) يشمل المكونات التقنية فقط.'
+      },
+      {
+        en: '10. A competitor’s current interest rate is considered both External and Objective information for a bank.',
+        ar: '١٠. يُعتبر سعر الفائدة الحالي لبنك منافس معلومة خارجية (External) وموضوعية (Objective) في نفس الوقت.',
+        ans: true,
+        exp: 'True (صح - Lec 6 Slide 20): خارجية لأنها من خارج البنك، وموضوعية لأنها حقيقة رقمية معروفة حالياً.'
+      }
+    ];
+
+    const examMCQQuestions = [
+      {
+        en: '1. Which of the following is an example of Office Automation Systems (OAS)?',
+        ar: '١. أي مما يلي يُعد مثالاً على نظم أتمتة المكاتب (OAS)؟',
+        options: [
+          'A) Email & Word Processing system (نظام البريد الإلكتروني ومعالجة النصوص)',
+          'B) Manufacturing robot (روبوت التصنيع)',
+          'C) Medical Expert system (نظام خبير طبي)',
+          'D) Enterprise Resource Planning - ERP (نظام تخطيط موارد المؤسسة)'
+        ],
+        ans: 0,
+        exp: 'نظم أتمتة المكاتب (OAS) تشمل البريد الإلكتروني، معالجة النصوص، وأدوات الجدولة للأنشطة المكتبية (Lec 4 Slide 23 & 30).'
+      },
+      {
+        en: '2. Which of the following is NOT a personal dimension of information?',
+        ar: '٢. أي مما يلي ليس من الأبعاد الشخصية للمعلومات (Personal Dimensions)؟',
+        options: [
+          'A) Time Dimension (البعد الزمني)',
+          'B) Location Dimension (البعد المكاني)',
+          'C) Organizational Dimension (البعد التنظيمي)',
+          'D) Form Dimension (بعد الشكل)'
+        ],
+        ans: 2,
+        exp: 'الأبعاد الشخصية الأربعة هي: Time, Location, Content, Form (Lec 5 Slide 3 & 22).'
+      },
+      {
+        en: '3. In the Time Dimension of information, "Timeliness" refers to:',
+        ar: '٣. في البعد الزمني للمعلومات، يشير مصطلح التوقيت المناسب (Timeliness) إلى:',
+        options: [
+          'A) The information being 100% free from errors (خلو المعلومة من الأخطاء)',
+          'B) The speed of the internet connection (سرعة اتصال الإنترنت)',
+          'C) Information being available when needed (توفر المعلومة عند الحاجة إليها)',
+          'D) The level of granularity in reports (مستوى التفصيل في التقارير)'
+        ],
+        ans: 2,
+        exp: 'Timeliness تعني أن تكون المعلومة متاحة في الوقت المطلوب عند الحاجة لاتخاذ القرار (Lec 5 Slide 4 & 22).'
+      },
+      {
+        en: '4. Which of the following is NOT a component of a Management Information System (MIS)?',
+        ar: '٤. أي مما يلي ليس من مكونات نظام المعلومات الإدارية (MIS)؟',
+        options: [
+          'A) Hardware (الأجهزة المادية)',
+          'B) Software (البرمجيات)',
+          'C) Human resources / People (الموارد البشرية / الأفراد)',
+          'D) Physical inventory (المخزون المادي للبضائع)'
+        ],
+        ans: 3,
+        exp: 'مكونات MIS هي People, Hardware, Software, Data, Networks, Processes، وليس المخزون المادي (Lec 3 Slide 23).'
+      },
+      {
+        en: '5. Which system uses sensors and controllers to automatically control physical processes in power plants and refineries?',
+        ar: '٥. أي نظام يستخدم الحساسات وأجهزة التحكم للتحكم تلقائياً في العمليات الفيزيائية في محطات توليد الكهرباء والمصافي؟',
+        options: [
+          'A) Decision Support Systems - DSS (نظم دعم القرار)',
+          'B) Process Control Systems - PCS (نظم التحكم في العمليات)',
+          'C) Executive Information Systems - EIS (نظم المعلومات التنفيذية)',
+          'D) Office Automation Systems - OAS (نظم أتمتة المكاتب)'
+        ],
+        ans: 1,
+        exp: 'نظم التحكم في العمليات (PCS) تضبط العمليات الصناعية تلقائياً بالحساسات مثل خفض سرعة التوربين عند ارتفاع حرارته (Lec 4 Slide 17).'
+      },
+      {
+        en: '6. Management reports generated on demand as needed rather than at predetermined intervals are called:',
+        ar: '٦. التقارير الإدارية التي يتم إنشاؤها فوراً عند الحاجة (حسب الطلب) وليس في فترات محددة مسبقاً تسمى:',
+        options: [
+          'A) Periodic reports (التقارير الدورية)',
+          'B) Ad-hoc reports (التقارير الفورية / حسب الطلب)',
+          'C) Statistical summaries (الملخصات الإحصائية)',
+          'D) Batch logs (سجلات الدفعات)'
+        ],
+        ans: 1,
+        exp: 'التقارير حسب الطلب تسمى Ad-hoc reports، بينما التقارير ذات الفترات الثابتة تسمى Periodic reports (Lec 7 Slide 8).'
+      },
+      {
+        en: '7. In TPS, the property that ensures concurrent transactions are executed as if in a serial order (e.g., two customers buying the last item) is:',
+        ar: '٧. الخاصية في TPS التي تضمن تنفيذ المعاملات المتزامنة وكأنها تتم بترتيب تسلسلي (مثل شراء شخصين لآخر قطعة في المخزون) هي:',
+        options: [
+          'A) Standardization (التوحيد القياسي)',
+          'B) Isolation (الاستقلالية / العزل)',
+          'C) Controlled Access (التحكم في الوصول)',
+          'D) Conciseness (الإيجاز)'
+        ],
+        ans: 1,
+        exp: 'خاصية الاستقلالية (Isolation) تضمن عدم تداخل المعاملات المتزامنة ومعالجتها بالتتابع (Lec 7 Slide 16).'
+      },
+      {
+        en: '8. The flow of information that consists of strategies, goals, and directives from upper management to lower levels is:',
+        ar: '٨. تدفق المعلومات الذي يتكون من الاستراتيجيات والأهداف والتوجيهات من الإدارة العليا إلى المستويات الدنيا هو:',
+        options: [
+          'A) Upward Flow (التدفق الصاعد)',
+          'B) Downward Flow (التدفق الهابط)',
+          'C) Horizontal Flow (التدفق الأفقي)',
+          'D) Inward/Outward Flow (التدفق الداخلي/الخارجي)'
+        ],
+        ans: 1,
+        exp: 'التدفق الهابط (Downward Flow) ينقل الاستراتيجيات والتوجيهات من الإدارة العليا للأسفل، بينما الصاعد (Upward) ينقل الحالة الراهنة (Lec 6 Slide 13).'
+      },
+      {
+        en: '9. In the DIKW pyramid, information combined with experience, context, patterns, and interpretation represents:',
+        ar: '٩. في هرم DIKW، المعلومات المدمجة مع الخبرة والسياق والأنماط والتفسير تمثل:',
+        options: [
+          'A) Raw Data (البيانات الخام)',
+          'B) Information (المعلومات)',
+          'C) Knowledge (المعرفة)',
+          'D) Hardware (الأجهزة)'
+        ],
+        ans: 2,
+        exp: 'دمج المعلومات بالخبرة والسياق والتفسير ينتج المعرفة (Knowledge) (Lec 1 Slide 6 & 8).'
+      },
+      {
+        en: '10. Which systems help managers make decisions for semi-structured problems using analytical models (e.g., impact of a 5% price increase)?',
+        ar: '١٠. أي الأنظمة تساعد المديرين في اتخاذ القرارات للمشكلات شبه المهيكلة باستخدام النماذج التحليلية (مثل تأثير زيادة السعر 5%)؟',
+        options: [
+          'A) Transaction Processing Systems - TPS',
+          'B) Decision Support Systems - DSS (نظم دعم القرار)',
+          'C) Batch Processing Systems',
+          'D) Word Processing Systems'
+        ],
+        ans: 1,
+        exp: 'نظم دعم القرار (DSS) تستخدم النماذج وأدوات التحليل لدعم المشكلات شبه المهيكلة والتنبؤ بالنتائج (Lec 4 Slide 18).'
+      }
+    ];
+
+    const examFIBQuestions = [
+      {
+        en: '1. __________ is a subsystem of Information Systems (IS) that includes the technological components (hardware, software, databases, networks).',
+        ar: '١. __________ هي نظام فرعي من نظم المعلومات (IS) يشمل المكونات التكنولوجية فقط (الأجهزة، البرمجيات، قواعد البيانات، الشبكات).',
+        accepted: ['information technology', 'it', 'تكنولوجيا المعلومات', 'تقنية المعلومات'],
+        displayAns: 'Information Technology (IT) / تكنولوجيا المعلومات'
+      },
+      {
+        en: '2. The modern trend in Information Systems emphasizes __________ across all organizational functions and departments.',
+        ar: '٢. يؤكد الاتجاه الحديث في نظم المعلومات على __________ عبر جميع الوظائف والأقسام التنظيمية (مثل أنظمة ERP).',
+        accepted: ['integration', 'التكامل', 'الدمج'],
+        displayAns: 'Integration / التكامل'
+      },
+      {
+        en: '3. The two main types of Transaction Processing Systems (TPS) based on processing mode are Online systems and __________ systems.',
+        ar: '٣. النوعان الرئيسيان لنظم معالجة المعاملات (TPS) هما النظم الفورية (Online) ونظم __________ (التي تعالج الشيكات والرواتب في مجموعات).',
+        accepted: ['batch', 'batch processing', 'الدفعات', 'نظم الدفعات', 'المعالجة بالدفعات'],
+        displayAns: 'Batch (Batch Processing) / نظم الدفعات'
+      },
+      {
+        en: '4. Information that attempts to describe something unknown, such as future expectations, forecasts, or opinions, is called __________ information.',
+        ar: '٤. المعلومات التي تحاول وصف شيء غير معروف (مثل التوقعات المستقبلية لأسعار الفائدة أو الآراء) تسمى معلومات __________.',
+        accepted: ['subjective', 'ذاتية', 'تقديرية', 'شخصية'],
+        displayAns: 'Subjective / ذاتية (تقديرية)'
+      },
+      {
+        en: '5. Systems that connect multiple organizations electronically (such as Supply Chain Management - SCM and e-commerce) are called __________ Information Systems.',
+        ar: '٥. الأنظمة التي تربط عدة منظمات مختلفة إلكترونياً (مثل إدارة سلسلة الإمداد SCM) تسمى نظم المعلومات __________ (اختصارها IOS).',
+        accepted: ['inter-organizational', 'interorganizational', 'ios', 'بين المنظمات', 'بين المؤسسات'],
+        displayAns: 'Inter-Organizational (IOS) / بين المنظمات (المؤسسات)'
+      },
+      {
+        en: '6. In TPS transaction processing activities, checking the validity and completeness of captured data before manipulation is called Data __________.',
+        ar: '٦. في أنشطة معالجة المعاملات في TPS، عملية فحص صحة واكتمال البيانات قبل معالجتها تسمى __________ البيانات.',
+        accepted: ['editing', 'data editing', 'تحرير', 'تحرير البيانات', 'مراجعة', 'فحص'],
+        displayAns: 'Data Editing / تحرير (فحص) البيانات'
+      },
+      {
+        en: '7. Systems that use artificial intelligence (AI), rule-based reasoning, and a knowledge base to simulate a human specialist (like medical diagnosis) are called __________ Systems.',
+        ar: '٧. الأنظمة التي تستخدم الذكاء الاصطناعي وقاعدة المعرفة لمحاكاة خبير بشري (مثل التشخيص الطبي) تسمى النظم __________.',
+        accepted: ['expert', 'expert systems', 'es', 'الخبيرة', 'النظم الخبيرة'],
+        displayAns: 'Expert Systems (ES) / النظم الخبيرة'
+      },
+      {
+        en: '8. The four levels of the DIKW hierarchy from bottom to top are: Data, Information, Knowledge, and __________.',
+        ar: '٨. المستويات الأربعة لهرم DIKW من القاعدة إلى القمة هي: البيانات، المعلومات، المعرفة، و __________.',
+        accepted: ['wisdom', 'الحكمة'],
+        displayAns: 'Wisdom / الحكمة'
+      },
+      {
+        en: '9. Management reports that compare actual performance to standards and highlight ONLY deviations beyond a threshold (e.g., ±5%) are called __________ reports.',
+        ar: '٩. التقارير الإدارية التي تقارن الأداء الفعلي بالمعايير وتعرض فقط الحالات التي حدث فيها انحراف كبير (مثل ±5%) تسمى تقارير __________.',
+        accepted: ['exception', 'exception reports', 'الاستثناءات', 'تقارير الاستثناءات', 'الاستثناء'],
+        displayAns: 'Exception Reports / تقارير الاستثناءات'
+      },
+      {
+        en: '10. Strategic management relies on highly summarized information known as __________ granularity, whereas operational employees use Fine granularity.',
+        ar: '١٠. تعتمد الإدارة الاستراتيجية العليا على معلومات ملخصة للغاية ذات درجة تفصيل __________ (بينما يستخدم الموظفون درجة تفصيل دقيقة Fine).',
+        accepted: ['coarse', 'coarse granularity', 'خشنة', 'ملخصة', 'تركيز خشن'],
+        displayAns: 'Coarse Granularity / خشنة (ملخصة)'
+      }
+    ];
+
+    let userTF = new Array(10).fill(null);
+    let userMCQ = new Array(10).fill(null);
+    let userFIB = new Array(10).fill(false);
+
+    function renderMidtermExam() {
+      // 1. Render True/False
+      const tfContainer = document.getElementById('exam-tf-list');
+      tfContainer.innerHTML = examTFQuestions.map((item, idx) => `
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2.5">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <p class="font-bold text-xs sm:text-sm en-text text-slate-800 dark:text-slate-200">${item.en}</p>
+              <p class="font-semibold text-xs sm:text-sm text-blue-600 dark:text-blue-400">${item.ar}</p>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="answerTF(${idx}, true)" id="tf-btn-${idx}-true" class="px-4 py-2 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-emerald-500 transition-all">
+                ✓ True (صح)
+              </button>
+              <button onclick="answerTF(${idx}, false)" id="tf-btn-${idx}-false" class="px-4 py-2 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-rose-500 transition-all">
+                ✗ False (خطأ)
+              </button>
+            </div>
+          </div>
+          <div id="tf-exp-${idx}" class="hidden p-2.5 rounded-xl text-xs"></div>
+        </div>
+      `).join('');
+
+      // 2. Render MCQ
+      const mcqContainer = document.getElementById('exam-mcq-list');
+      mcqContainer.innerHTML = examMCQQuestions.map((item, idx) => `
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3">
+          <div class="space-y-1">
+            <p class="font-bold text-xs sm:text-sm en-text text-slate-800 dark:text-slate-200">${item.en}</p>
+            <p class="font-semibold text-xs sm:text-sm text-teal-600 dark:text-teal-400">${item.ar}</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            ${item.options.map((opt, oIdx) => `
+              <button onclick="answerMCQ(${idx}, ${oIdx})" id="mcq-btn-${idx}-${oIdx}" class="text-right px-3.5 py-2.5 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-teal-500 transition-all">
+                ${opt}
+              </button>
+            `).join('')}
+          </div>
+          <div id="mcq-exp-${idx}" class="hidden p-2.5 rounded-xl text-xs"></div>
+        </div>
+      `).join('');
+
+      // 3. Render Fill-in-the-Blank
+      const fibContainer = document.getElementById('exam-fib-list');
+      fibContainer.innerHTML = examFIBQuestions.map((item, idx) => `
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3">
+          <div class="space-y-1">
+            <p class="font-bold text-xs sm:text-sm en-text text-slate-800 dark:text-slate-200">${item.en}</p>
+            <p class="font-semibold text-xs sm:text-sm text-purple-600 dark:text-purple-400">${item.ar}</p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <input type="text" id="fib-input-${idx}" placeholder="اكتب الإجابة بالإنجليزي أو العربي..." class="flex-1 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs sm:text-sm focus:outline-none focus:border-purple-500">
+            <div class="flex gap-2">
+              <button onclick="checkFIB(${idx})" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition-all">
+                تحقق (Check)
+              </button>
+              <button onclick="revealSingleFIB(${idx})" class="px-3 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-xs font-bold transition-all">
+                إظهار الإجابة
+              </button>
+            </div>
+          </div>
+          <div id="fib-exp-${idx}" class="hidden p-2.5 rounded-xl text-xs"></div>
+        </div>
+      `).join('');
+    }
+
+    function answerTF(idx, val) {
+      userTF[idx] = val;
+      const item = examTFQuestions[idx];
+      const btnT = document.getElementById(`tf-btn-${idx}-true`);
+      const btnF = document.getElementById(`tf-btn-${idx}-false`);
+      const expEl = document.getElementById(`tf-exp-${idx}`);
+
+      btnT.className = 'px-4 py-2 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900';
+      btnF.className = 'px-4 py-2 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900';
+
+      const correctBtn = item.ans ? btnT : btnF;
+      const selectedBtn = val ? btnT : btnF;
+
+      correctBtn.className = 'px-4 py-2 rounded-xl text-xs font-bold border border-emerald-500 bg-emerald-500 text-white';
+      if (val !== item.ans) {
+        selectedBtn.className = 'px-4 py-2 rounded-xl text-xs font-bold border border-rose-500 bg-rose-500 text-white';
+      }
+
+      expEl.classList.remove('hidden');
+      expEl.className = val === item.ans
+        ? 'p-2.5 rounded-xl text-xs bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20'
+        : 'p-2.5 rounded-xl text-xs bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20';
+      expEl.innerHTML = `<strong>${val === item.ans ? '✓ إجابة صحيحة!' : '✗ إجابة خاطئة!'}</strong> ${item.exp}`;
+      updateTotalExamScore();
+    }
+
+    function answerMCQ(idx, oIdx) {
+      userMCQ[idx] = oIdx;
+      const item = examMCQQuestions[idx];
+      item.options.forEach((_, i) => {
+        const btn = document.getElementById(`mcq-btn-${idx}-${i}`);
+        if (i === item.ans) {
+          btn.className = 'text-right px-3.5 py-2.5 rounded-xl text-xs font-bold border border-emerald-500 bg-emerald-500/20 text-emerald-700 dark:text-emerald-300';
+        } else if (i === oIdx) {
+          btn.className = 'text-right px-3.5 py-2.5 rounded-xl text-xs font-bold border border-rose-500 bg-rose-500/20 text-rose-700 dark:text-rose-300';
+        } else {
+          btn.className = 'text-right px-3.5 py-2.5 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 opacity-60';
+        }
+      });
+
+      const expEl = document.getElementById(`mcq-exp-${idx}`);
+      expEl.classList.remove('hidden');
+      expEl.className = oIdx === item.ans
+        ? 'p-2.5 rounded-xl text-xs bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20'
+        : 'p-2.5 rounded-xl text-xs bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20';
+      expEl.innerHTML = `<strong>${oIdx === item.ans ? '✓ إجابة صحيحة!' : '✗ إجابة خاطئة!'}</strong> ${item.exp}`;
+      updateTotalExamScore();
+    }
+
+    function checkFIB(idx) {
+      const item = examFIBQuestions[idx];
+      const inputEl = document.getElementById(`fib-input-${idx}`);
+      const expEl = document.getElementById(`fib-exp-${idx}`);
+      const rawVal = inputEl.value.trim().toLowerCase();
+
+      const isCorrect = item.accepted.some(acc => rawVal.includes(acc) && rawVal.length >= 2);
+      userFIB[idx] = isCorrect;
+
+      expEl.classList.remove('hidden');
+      if (isCorrect) {
+        expEl.className = 'p-2.5 rounded-xl text-xs bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20';
+        expEl.innerHTML = `<strong>✓ إجابة صحيحة!</strong> الإجابة النموذجية: <span class="font-bold">${item.displayAns}</span>`;
+      } else {
+        expEl.className = 'p-2.5 rounded-xl text-xs bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20';
+        expEl.innerHTML = `<strong>✗ حاول مرة أخرى أو راجع المصطلح:</strong> الإجابة النموذجية هي: <span class="font-bold">${item.displayAns}</span>`;
+      }
+      updateTotalExamScore();
+    }
+
+    function revealSingleFIB(idx) {
+      const item = examFIBQuestions[idx];
+      const inputEl = document.getElementById(`fib-input-${idx}`);
+      const expEl = document.getElementById(`fib-exp-${idx}`);
+      inputEl.value = item.displayAns;
+      userFIB[idx] = true;
+      expEl.classList.remove('hidden');
+      expEl.className = 'p-2.5 rounded-xl text-xs bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20';
+      expEl.innerHTML = `<strong>✓ الإجابة النموذجية:</strong> <span class="font-bold">${item.displayAns}</span>`;
+      updateTotalExamScore();
+    }
+
+    function updateTotalExamScore() {
+      let tfScore = 0;
+      let mcqScore = 0;
+      let fibScore = 0;
+
+      userTF.forEach((v, i) => { if (v === examTFQuestions[i].ans) tfScore++; });
+      userMCQ.forEach((v, i) => { if (v === examMCQQuestions[i].ans) mcqScore++; });
+      userFIB.forEach(v => { if (v) fibScore++; });
+
+      const total = tfScore + mcqScore + fibScore;
+      document.getElementById('exam-total-score').textContent = `${total} / 30`;
+      document.getElementById('exam-sub-scores').textContent = `صح وغلط: ${tfScore}/10 • اختر: ${mcqScore}/10 • أكمل: ${fibScore}/10`;
+    }
+
+    function revealAllExam() {
+      examTFQuestions.forEach((item, idx) => answerTF(idx, item.ans));
+      examMCQQuestions.forEach((item, idx) => answerMCQ(idx, item.ans));
+      examFIBQuestions.forEach((_, idx) => revealSingleFIB(idx));
+    }
+
+    function resetFullExam() {
+      userTF.fill(null);
+      userMCQ.fill(null);
+      userFIB.fill(false);
+      renderMidtermExam();
+      updateTotalExamScore();
+    }
+
+    // Initialize on load
+    window.onload = function () {
+      selectDIKW(0);
+      renderPracticeQuizzes();
+      renderMidtermExam();
+    };
+  </script>
+</body>
+</html>
+```
+
+لقد قمت ببناء منصة **نظم المعلومات الإدارية (MIS)** بالكامل باللغتين **العربية والإنجليزية**، ومقسمة إلى 5 أقسام رئيسية:
+
+1. **المحاضرة 1 و 2 (الأساسيات والمبادئ):** شرح تعريف $MIS$ وتطوره التاريخي، **هرم $DIKW$ التفاعلي**، مكونات النظام والتغذية الراجعة، **المبادئ الـ 11 الحاكمة لـ $MIS$** (بما فيها مبدأ الاستثناء $Principle\text{ of }Exception$)، الوظائف الإدارية الـ 6، ومقارنة الهيكل الهرمي ($Hierarchical$) بالهيكل المسطح ($Flat$).
+2. **المحاضرة 3 و 4 (المفاهيم والتصنيفات):** الفرق بين $IT$ و $IS$ وتشبيه الحافلة، الموارد الخمسة لنظام $CBIS$، والتصنيفات الأربعة لنظم المعلومات (حسب المستوى التنظيمي $Functional / EIS / IOS$، وحسب طريقة المعالجة $Batch / Online\text{ Batch} / Real\text{-}Time$، وحسب الهدف $TPS, PCS, DSS, ES, EIS, BIS$، وحسب نوع الدعم $OAS / MSS$).
+3. **المحاضرة 5 و 6 (أبعاد وجودة المعلومات):** الأبعاد الشخصية الأربعة ($Time, Location, Content, Form$)، والخصائص الإضافية للجودة، والأبعاد التنظيمية الثلاثة (اتجاهات التدفق الأربعة $Upward, Downward, Horizontal, Inward/Outward$، ودرجة التفصيل $Fine\text{ vs. }Coarse\text{ Granularity}$، وما تصفه المعلومات مع مثال سعر الفائدة في البنك).
+4. **المحاضرة 7 (المستويات الإدارية ونظم $TPS$):** أوجه الدعم والتقارير الـ 8 التي يوفرها $MIS$ (الملخصات، تقارير الاستثناءات، التقارير الدورية، والتقارير الفورية $Ad\text{-}hoc$)، والمعمارية ثلاثية الطبقات لـ $TPS$، ونظام الرواتب $Payroll\text{ TPS}$، والخصائص الخمس الأساسية لـ $TPS$ ($Consistency, Isolation, Reliability, Standardization, Controlled\text{ Access}$)، والأنشطة الـ 6 لدورة معالجة المعاملات.
+5. **نموذج امتحان الميدتيرم الشامل (30 سؤالاً بالعربي والإنجليزي):**
+   - **10 أسئلة صح وغلط (True/False)**
+   - **10 أسئلة اختيار من متعدد (MCQ)**
+   - **10 أسئلة أكمل الفراغات (Fill in the Blanks)** مع بنك كلمات مساعد وتصحيح فوري يقبل الإجابة بالعربي أو بالإنجليزي.
+
+افتح الموقع من زر **Preview**، ولما تحب نجهز المادة الجاية ابعتلي الماتريال بتاعتها على طول!
